@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     dotnet-sdk
+    gnupg
     ripgrep
   ] ++ lib.optionals stdenv.isDarwin [
     cocoapods
