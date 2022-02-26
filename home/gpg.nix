@@ -1,9 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  programs.gpg.enable = true;
-
-  programs.gpg.settings = {
-    pinentry-program = "${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac";
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 1800;
+    enableSshSupport = true;
+    extraConfig = ''
+      pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
+    '';
   };
 }
