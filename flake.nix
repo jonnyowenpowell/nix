@@ -148,6 +148,8 @@
       };
 
       homeManagerModules = {
+        jonny-git = import ./home/git.nix;
+        jonny-git-aliases = import ./home/git-aliases.nix;
         jonny-packages = import ./home/packages.nix;
 
         home-user-info = { lib, ... }: {
