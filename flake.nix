@@ -150,6 +150,7 @@
       homeManagerModules = {
         jonny-git = import ./home/git.nix;
         jonny-git-aliases = import ./home/git-aliases.nix;
+        jonny-ssh = import ./home/ssh.nix;
         jonny-packages = import ./home/packages.nix;
 
         home-user-info = { lib, ... }: {

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   # Git
@@ -10,7 +10,6 @@
     advice.addignoredfile = false;
     commit.gpgsign = true;
     core.autocrlf = "input";
-    core.editor = "${pkgs.neovim-remote}/bin/nvr --remote-wait-silent -cc split";
     credential.helper = "osxkeychain";
     diff.colorMoved = "default";
     init.defaultbranch = "main";
