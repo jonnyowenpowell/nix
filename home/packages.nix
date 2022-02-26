@@ -9,7 +9,7 @@
     style = "plain";
   };
 
-home.packages = with pkgs; [
+  home.packages = with pkgs; [
     dotnet-sdk
     ripgrep
   ] ++ lib.optionals stdenv.isDarwin [
