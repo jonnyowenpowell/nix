@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  programs.gnupg.agent = {
+  programs.gpg.agent = {
       enable = true;
       enableSSHSupport = true;
       defaultCacheTtl = 1800;
