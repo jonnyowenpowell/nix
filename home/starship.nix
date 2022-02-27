@@ -1,8 +1,15 @@
-{
+{ pkgs, ... }:
+
+let
+  starship = pkgs.callPackage ../pkgs/starship.nix {
+    inherit (pkgs.darwin.apple_sdk.frameworks) Security;
+  };
+in {
   # Starship Prompt
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.starship.enable
   programs.starship.enable = true;
 
+  programs.starship.package = starship;
   programs.starship.settings = {
     # See docs here: https://starship.rs/config/
     # Symbols config configured ./starship-symbols.nix.

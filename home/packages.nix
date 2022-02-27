@@ -34,6 +34,7 @@
     du-dust
     exa
     fd
+    gnupg
     gopass
     gopass-jsonapi
     go-task

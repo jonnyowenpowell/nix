@@ -32,13 +32,7 @@
       # Configuration for `nixpkgs`
       nixpkgsConfig = {
         config = { allowUnfree = true; };
-        overlays = attrValues self.overlays ++ singleton (
-          # Sub in x86 version of packages that don't build on Apple Silicon yet
-          final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
-            inherit (final.pkgs-x86)
-              starship; # TODO: remove when https://github.com/NixOS/nixpkgs/issues/160876 is fixed.
-          })
-        );
+        overlays = attrValues self.overlays;
       };
 
       homeManagerStateVersion = "22.05";
@@ -47,7 +41,7 @@
         username = "jonny";
         fullName = "Jonny Powell";
         email = "jonnyowenpowell@gmail.com";
-        nixConfigDirectory = "/Users/jonny/.config/nixpkgs";
+        nixConfigDirectory = "/Users/jonny/.config/nix";
       };
 
       # Modules shared by most `nix-darwin` personal configurations.

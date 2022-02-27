@@ -8,7 +8,7 @@
 
   programs.git.extraConfig = {
     advice.addignoredfile = false;
-    commit.gpgsign = true;
+    commit.gpgsign = false;
     core.editor = "${pkgs.neovim-remote}/bin/nvr --remote-wait-silent -cc split";
     core.autocrlf = "input";
     credential.helper = "osxkeychain";

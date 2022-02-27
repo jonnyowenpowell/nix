@@ -57,7 +57,7 @@ in
   homebrew.casks = [
     "amethyst"
     "google-chrome"
-    "keybase"
+    "gpg-suite"
     "tor-browser"
     "transmission"
     "visual-studio-code"
