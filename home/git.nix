@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   # Git
@@ -9,6 +9,7 @@
   programs.git.extraConfig = {
     advice.addignoredfile = false;
     commit.gpgsign = true;
+    core.editor = "${pkgs.neovim-remote}/bin/nvr --remote-wait-silent -cc split";
     core.autocrlf = "input";
     credential.helper = "osxkeychain";
     diff.colorMoved = "default";

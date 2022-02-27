@@ -14,12 +14,26 @@
     dotnet-sdk
     go
 
+    # Nix
+    comma
+    niv
+
     # Utilities
+    cloc
+    coreutils
     docker
+    du-dust
+    exa
+    fd
     gopass
     gopass-jsonapi
-    ripgrep
     go-task
+    procs
+    ripgrep
+    thefuck
+    unrar
+    wget
+    xz
   ] ++ lib.optionals stdenv.isDarwin [
     cocoapods
     m-cli # useful macOS CLI commands

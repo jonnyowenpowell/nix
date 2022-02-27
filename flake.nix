@@ -17,6 +17,7 @@
     # Other sources
     flake-compat = { url = github:edolstra/flake-compat; flake = false; };
     flake-utils.url = github:numtide/flake-utils;
+    moses-lua = { url = github:Yonaba/Moses; flake = false; };
     prefmanager.url = github:malob/prefmanager;
     prefmanager.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
@@ -129,6 +130,24 @@
           prefmanager = inputs.prefmanager.defaultPackage.${prev.stdenv.system};
         };
 
+        # Overlay that adds various additional utility functions to `vimUtils`
+        vimUtils = import ./overlays/vimUtils.nix;
+
+        # Overlay that adds some additional Neovim plugins
+        vimPlugins = final: prev:
+          let
+            inherit (self.overlays.vimUtils final prev) vimUtils;
+          in
+          {
+            vimPlugins = prev.vimPlugins.extend (super: self:
+              (vimUtils.buildVimPluginsFromFlakeInputs inputs [
+                # Add plugins here
+              ]) // {
+                moses-nvim = vimUtils.buildNeovimLuaPackagePluginFromFlakeInput inputs "moses-lua";
+              }
+            );
+          };
+
         # Overlay useful on Macs with Apple Silicon
         apple-silicon = final: prev: optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
           # Add access to x86 packages system is running Apple Silicon
@@ -137,6 +156,12 @@
             inherit (nixpkgsConfig) config;
           };
         };
+
+        # Overlay to include node packages listed in `./pkgs/node-packages/package.json`
+        # Run `nix run my#nodePackages.node2nix -- -14` to update packages.
+        nodePackages = final: prev: {
+          nodePackages = prev.nodePackages // import ./pkgs/node-packages { pkgs = prev; };
+        };
       };
 
       darwinModules = {
@@ -144,17 +169,21 @@
         jonny-general = import ./darwin/general.nix;
         jonny-gnupg = import ./darwin/gnupg.nix;
 
+        programs-nix-index = import ./modules/darwin/programs/nix-index.nix;
         security-pam = import ./modules/darwin/security/pam.nix;
         users-primaryUser = import ./modules/darwin/users.nix;
       };
 
       homeManagerModules = {
+        jonny-fish = import ./home/fish.nix;
         jonny-git = import ./home/git.nix;
         jonny-git-aliases = import ./home/git-aliases.nix;
         jonny-gnupg-agent = import ./home/gnupg-agent.nix;
+        jonny-neovim = import ./home/neovim.nix;
         jonny-ssh = import ./home/ssh.nix;
         jonny-packages = import ./home/packages.nix;
 
+        programs-neovim-extras = import ./modules/home/programs/neovim/extras.nix;
         home-user-info = { lib, ... }: {
           options.home.user-info =
             (self.darwinModules.users-primaryUser { inherit lib; }).options.users.primaryUser;
@@ -172,6 +201,7 @@
           pkgs-master
           pkgs-stable
           apple-silicon
+          nodePackages
         ];
       };
     });
