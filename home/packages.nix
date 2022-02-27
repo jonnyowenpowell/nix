@@ -19,6 +19,7 @@
     # Development
     dotnet-sdk
     go
+    nodejs
     nodePackages.yarn
 
     # Nix
