@@ -9,6 +9,12 @@
     style = "plain";
   };
 
+  # Direnv, load and unload environment variables depending on the current directory.
+  # https://direnv.net
+  # https://rycee.gitlab.io/home-manager/options.html#opt-programs.direnv.enable
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   home.packages = with pkgs; [
     # Development
     dotnet-sdk
@@ -17,6 +23,7 @@
     # Nix
     comma
     niv
+    nodePackages.node2nix
 
     # Utilities
     cloc
