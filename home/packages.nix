@@ -12,6 +12,7 @@
   home.packages = with pkgs; [
     dotnet-sdk
     ripgrep
+    go-task
   ] ++ lib.optionals stdenv.isDarwin [
     cocoapods
     m-cli # useful macOS CLI commands
