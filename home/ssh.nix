@@ -4,7 +4,6 @@
   home.file.".ssh/config".text = ''
     Host *
       IdentitiesOnly yes
-      IdentityFile /Users/jonny/.ssh/id_ed25519
       AddKeysToAgent yes
       ForwardAgent yes
       Compression no

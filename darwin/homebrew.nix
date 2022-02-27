@@ -59,9 +59,13 @@ in
     "amethyst"
     "google-chrome"
     "gpg-suite"
+    "secretive"
     "tor-browser"
     "transmission"
     "visual-studio-code"
     "vlc"
   ];
+
+  environment.variables.SSH_AUTH_SOCK = mkIfCaskPresent "secretive"
+    "/Users/${config.users.primaryUser.username}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
 }
