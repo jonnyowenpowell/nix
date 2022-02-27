@@ -10,7 +10,13 @@
   };
 
   home.packages = with pkgs; [
+    # Development
     dotnet-sdk
+    go
+
+    # Utilities
+    gopass
+    gopass-jsonapi
     ripgrep
     go-task
   ] ++ lib.optionals stdenv.isDarwin [
