@@ -15,9 +15,7 @@
       identityFile = "${config.home.homeDirectory}/.ssh/id_ed25519";
       identitiesOnly = true;
       extraOptions = {
-        UseKeychain    = "yes";
         AddKeysToAgent = "yes";
-        IgnoreUnknown  = "UseKeychain";
       };
     };
   };
