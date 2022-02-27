@@ -38,6 +38,7 @@
     gopass
     gopass-jsonapi
     go-task
+    mosh
     procs
     ripgrep
     thefuck
