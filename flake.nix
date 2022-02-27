@@ -167,7 +167,6 @@
       darwinModules = {
         jonny-bootstrap = import ./darwin/bootstrap.nix;
         jonny-general = import ./darwin/general.nix;
-        jonny-gnupg = import ./darwin/gnupg.nix;
         jonny-homebrew = import ./darwin/homebrew.nix;
 
         programs-nix-index = import ./modules/darwin/programs/nix-index.nix;

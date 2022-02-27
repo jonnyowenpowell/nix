@@ -11,8 +11,6 @@
     commit.gpgsign = true;
     core.autocrlf = "input";
     core.editor = "${pkgs.neovim-remote}/bin/nvr --remote-wait-silent -cc split";
-    core.sshCommand = "/usr/bin/ssh";
-    credential.helper = "osxkeychain";
     diff.colorMoved = "default";
     init.defaultbranch = "main";
     tag.forcesignannotated = true;
