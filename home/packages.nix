@@ -15,6 +15,7 @@
     go
 
     # Utilities
+    docker
     gopass
     gopass-jsonapi
     ripgrep
