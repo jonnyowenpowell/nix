@@ -4,6 +4,7 @@
   home.file.".ssh/config".text = ''
     Host *
       IdentitiesOnly yes
+	      IdentityAgent /Users/jonny/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
       AddKeysToAgent yes
       ForwardAgent yes
       Compression no
