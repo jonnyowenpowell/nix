@@ -142,6 +142,7 @@
       darwinModules = {
         jonny-bootstrap = import ./darwin/bootstrap.nix;
         jonny-general = import ./darwin/general.nix;
+        jonny-gnupg = import ./darwin/gnupg.nix;
 
         security-pam = import ./modules/darwin/security/pam.nix;
         users-primaryUser = import ./modules/darwin/users.nix;
@@ -150,7 +151,7 @@
       homeManagerModules = {
         jonny-git = import ./home/git.nix;
         jonny-git-aliases = import ./home/git-aliases.nix;
-        jonny-gpg = import ./home/gpg.nix;
+        jonny-gnupg-agent = import ./home/gnupg-agent.nix;
         jonny-ssh = import ./home/ssh.nix;
         jonny-packages = import ./home/packages.nix;
 
