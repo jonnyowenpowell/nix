@@ -45,6 +45,7 @@ in
   # Commented apps suffer continual update issue:
   # https://github.com/malob/nixpkgs/issues/9
   homebrew.masApps = {
+    Amphetamine = 937984704;
     Keynote = 409183694;
     Numbers = 409203825;
     Pages = 409201541;
