@@ -32,7 +32,13 @@
       # Configuration for `nixpkgs`
       nixpkgsConfig = {
         config = { allowUnfree = true; };
-        overlays = attrValues self.overlays;
+        overlays = attrValues self.overlays ++ singleton (
+          # Sub in x86 version of packages that don't build on Apple Silicon yet
+          final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
+            inherit (final.pkgs-x86)
+              starship; # TODO: remove when https://github.com/NixOS/nixpkgs/issues/160876 is fixed.
+          })
+        );
       };
 
       homeManagerStateVersion = "22.05";
@@ -180,8 +186,10 @@
         jonny-git-aliases = import ./home/git-aliases.nix;
         jonny-gnupg-agent = import ./home/gnupg-agent.nix;
         jonny-neovim = import ./home/neovim.nix;
-        jonny-ssh = import ./home/ssh.nix;
         jonny-packages = import ./home/packages.nix;
+        jonny-ssh = import ./home/ssh.nix;
+        jonny-starship = import ./home/starship.nix;
+        jonny-starship-symbols = import ./home/starship-symbols.nix;
 
         programs-neovim-extras = import ./modules/home/programs/neovim/extras.nix;
         home-user-info = { lib, ... }: {
