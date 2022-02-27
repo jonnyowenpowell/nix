@@ -19,6 +19,7 @@
     # Development
     dotnet-sdk
     go
+    nodePackages.yarn
 
     # Nix
     comma
