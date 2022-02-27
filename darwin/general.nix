@@ -13,7 +13,7 @@
   fonts.enableFontDir = true;
   fonts.fonts = with pkgs; [
      recursive
-     (nerdfonts.override { fonts = [ "JetBrainsMono Nerd Font Regular" ]; })
+     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
    ];
 
   # Keyboard
