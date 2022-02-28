@@ -175,6 +175,7 @@
       };
 
       homeManagerModules = {
+        jonny-environment = import ./home/environment.nix;
         jonny-fish = import ./home/fish.nix;
         jonny-git = import ./home/git.nix;
         jonny-git-aliases = import ./home/git-aliases.nix;
