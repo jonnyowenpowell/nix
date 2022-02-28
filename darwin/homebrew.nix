@@ -49,7 +49,6 @@ in
     Keynote = 409183694;
     Numbers = 409203825;
     Pages = 409201541;
-    Slack = 803453959;
     Xcode = 497799835;
   };
 
@@ -57,6 +56,7 @@ in
   # limitiations, e.g., Transmit, install the Homebrew Cask.
   homebrew.casks = [
     "amethyst"
+    "docker"
     "google-chrome"
     "gpg-suite"
     "secretive"
