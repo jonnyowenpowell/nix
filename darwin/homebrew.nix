@@ -37,6 +37,7 @@ in
     "homebrew/cask-versions"
     "homebrew/core"
     "homebrew/services"
+    "mongodb/brew"
     "nrlquaker/createzap"
   ];
 
@@ -52,6 +53,10 @@ in
     Xcode = 497799835;
   };
 
+  homebrew.brews = [
+    "mongodb-database-tools"
+  ];
+
   # If an app isn't available in the Mac App Store, or the version in the App Store has
   # limitiations, e.g., Transmit, install the Homebrew Cask.
   homebrew.casks = [
@@ -59,6 +64,7 @@ in
     "docker"
     "google-chrome"
     "gpg-suite"
+    "mongodb-compass"
     "secretive"
     "tor-browser"
     "transmission"
