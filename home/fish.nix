@@ -147,6 +147,8 @@ in
     set -g fish_color_operator     green     # color of parameter expansion operators like '*' and '~'
     set -g fish_color_escape       red       # color of character escapes like '\n' and and '\x70'
     set -g fish_color_cancel       red       # color of the '^C' indicator on a canceled command
+
+    ${optionalString (elem pkgs.go-task config.home.packages) "alias gtask 'task -d (git rev-parse --show-toplevel)'"}
   '';
   # }}}
 }
