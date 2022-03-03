@@ -56,6 +56,7 @@ in
   homebrew.brews = [
     "mongocli"
     "mongosh"
+    "mongodb-community@5.0"
     "mongodb-database-tools"
   ];
 
