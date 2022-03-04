@@ -67,6 +67,7 @@ in
     "docker"
     "google-chrome"
     "gpg-suite"
+    "keybase"
     "mongodb-compass"
     "secretive"
     "tor-browser"
