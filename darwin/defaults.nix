@@ -7,7 +7,7 @@
     mouse-over-hilite-stack = false;
     minimize-to-application = true;
     mineffect = "scale";
-    tilesize = 128;
+    tilesize = 32;
     # Disable all hot corners
     wvous-bl-corner = 1;
     wvous-br-corner = 1;
