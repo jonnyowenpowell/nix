@@ -10,7 +10,7 @@
     advice.addignoredfile = false;
     commit.gpgsign = true;
     core.autocrlf = "input";
-    core.editor = "${pkgs.neovim}/bin/nvim cc split";
+    core.editor = "${pkgs.neovim}/bin/nvim -cc split";
     diff.colorMoved = "default";
     init.defaultbranch = "main";
     tag.forcesignannotated = true;
