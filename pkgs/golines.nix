@@ -12,6 +12,5 @@ buildGoModule rec {
     owner = "segmentio";
     repo = "golines";
     rev = "v${version}";
-    sha256 = "1wmzl5sk5mc46njzn86007sqyyv6han058ppiw536qyhk88rzazq";
   };
 }
