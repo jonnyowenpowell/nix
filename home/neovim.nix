@@ -23,13 +23,35 @@ let
     config = ''if !exists('g:vscode') | packadd ${plugin.pname} | endif'';
   };
 
+  # https://github.com/ray-x/go.nvim
+  go-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "go-nvim";
+    name = "go.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "ray-x";
+      repo = "go.nvim";
+      rev = "0fe0a9ee3367f7bd1e9c9ab30d5b7d5e66b83fc6";
+    };
+  };
+
+  # https://github.com/ray-x/guihua.lua
+  guihua-lua = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "guihua.lua";
+    src = pkgs.fetchFromGitHub {
+      owner = "ray-x";
+      repo = "guihua.lua";
+      rev = "dc31428364809b4388c007c227e3d5d39f1e4395";
+    };
+  };
+
+  # theme
+  # https://github.com/mcchrish/zenbones.nvim
   zenbones-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
     name = "zenbones.nvim";
     src = pkgs.fetchFromGitHub {
       owner = "mcchrish";
       repo = "zenbones.nvim";
       rev = "1e0b792efd4cee41c8005d6b61a6e1f91a630c6b";
-      sha256 = "L9velRUwXaf6QhAx6gqsZT3Zf3LzuEKNUvLIvLyovmM=";
     };
   };
 in
@@ -69,6 +91,7 @@ in
     editorconfig-vim
     (pluginWithDeps galaxyline-nvim [ nvim-web-devicons ])
     gitsigns-nvim
+    (pluginWithDeps go-nvim [ guihua-lua nvim-dap nvim-dap-ui nvim-dap-virtual-text ])
     indent-blankline-nvim
     lspsaga-nvim
     (pluginWithDeps bufferline-nvim [ nvim-web-devicons ])
