@@ -16,7 +16,7 @@
 
 let
   golines = pkgs.callPackage ../pkgs/golines.nix {};
-  goimports = pkgs.callPackage ../pkgs/goimports.nix {};
+  # goimports = pkgs.callPackage ../pkgs/goimports.nix {};
   # gorename = pkgs.callPackage ../pkgs/gorename.nix {};
   # fillstruct = pkgs.callPackage ../pkgs/fillstruct.nix {};
   # fillswitch = pkgs.callPackage ../pkgs/fillswitch.nix {};
@@ -46,18 +46,17 @@ in {
     nodejs
     nodePackages.yarn
     ## Go
-    pkgs.gopls
-    pkgs.gofumpt
-    pkgs.gomodifytags
-    pkgs.gotests
-    pkgs.iferr
-    pkgs.impl
-    pkgs.delve
-    pkgs.richgo
+    gopls
+    gofumpt
+    gomodifytags
+    gotests
+    iferr
+    impl
+    delve
+    richgo
 
     golines
-    goimports
-    # gorename
+    gotools
     # fillstruct
     # fillswitch
     # fixplurals
