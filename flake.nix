@@ -181,7 +181,6 @@
         jonny-git = import ./home/git.nix;
         jonny-git-aliases = import ./home/git-aliases.nix;
         jonny-gnupg-agent = import ./home/gnupg-agent.nix;
-        jonny-go = import ./home/go.nix;
         jonny-neovim = import ./home/neovim.nix;
         jonny-packages = import ./home/packages.nix;
         jonny-ssh = import ./home/ssh.nix;
