@@ -7,7 +7,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "golang";
     repo = "tools";
-    rev = "gorename/v${version}";
+    rev = "v${version}";
     sha256 = lib.fakeSha256;
   };
 
