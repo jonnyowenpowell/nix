@@ -17,7 +17,7 @@
 let
   golines = pkgs.callPackage ../pkgs/golines.nix {};
   goimports = pkgs.callPackage ../pkgs/goimports.nix {};
-  gorename = pkgs.callPackage ../pkgs/gorename.nix {};
+  # gorename = pkgs.callPackage ../pkgs/gorename.nix {};
   # fillstruct = pkgs.callPackage ../pkgs/fillstruct.nix {};
   # fillswitch = pkgs.callPackage ../pkgs/fillswitch.nix {};
   # fixplurals = pkgs.callPackage ../pkgs/fixplurals.nix {};
@@ -57,7 +57,7 @@ in {
 
     golines
     goimports
-    gorename
+    # gorename
     # fillstruct
     # fillswitch
     # fixplurals
