@@ -17,8 +17,8 @@
 let
   golines = pkgs.callPackage ../pkgs/golines.nix {};
   fillstruct = pkgs.callPackage ../pkgs/fillstruct.nix {};
-  # fillswitch = pkgs.callPackage ../pkgs/fillswitch.nix {};
-  # fixplurals = pkgs.callPackage ../pkgs/fixplurals.nix {};
+  fillswitch = pkgs.callPackage ../pkgs/fillswitch.nix {};
+  fixplurals = pkgs.callPackage ../pkgs/fixplurals.nix {};
 in {
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat
@@ -56,8 +56,8 @@ in {
     golines
     gotools
     fillstruct
-    # fillswitch
-    # fixplurals
+    fillswitch
+    fixplurals
 
     # Nix
     comma
