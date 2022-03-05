@@ -1,5 +1,7 @@
 {
   programs.go.enable = true;
+  programs.go.goBin = "go/bin";
+  programs.go.goPath = "go";
 
   # For go.nvim
   programs.go.packages = {
