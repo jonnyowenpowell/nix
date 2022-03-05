@@ -22,6 +22,16 @@ let
     optional = true;
     config = ''if !exists('g:vscode') | packadd ${plugin.pname} | endif'';
   };
+
+  zenbones-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    name = "zenbones.nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "mcchrish";
+      repo = "zenbones.nvim";
+      rev = "1e0b792efd4cee41c8005d6b61a6e1f91a630c6b";
+      sha256 = "L9velRUwXaf6QhAx6gqsZT3Zf3LzuEKNUvLIvLyovmM=";
+    };
+  };
 in
 # }}}
 {
@@ -34,11 +44,10 @@ in
   # Minimal init.vim config to load Lua config. Nix and Home Manager don't currently support
   # `init.lua`.
   xdg.configFile."nvim/lua".source = mkOutOfStoreSymlink "${nixConfigDirectory}/configs/nvim/lua";
-  xdg.configFile."nvim/colors".source = mkOutOfStoreSymlink "${nixConfigDirectory}/configs/nvim/colors";
   programs.neovim.extraConfig = "lua require('init')";
 
   programs.neovim.plugins = with pkgs.vimPlugins; [
-    lush-nvim
+    (pluginWithDeps zenbones-nvim [ lush-nvim ])
     moses-nvim
     tabular
     vim-commentary

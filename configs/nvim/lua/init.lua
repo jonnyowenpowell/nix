@@ -16,16 +16,6 @@ local env = vim.env
 
 -- TODO --------------------------------------------------------------------------------------------
 
--- - Flesh out custom colorscheme
---   - Revisit Pmenu highlights:
---   - Experiment with `Diff` highlights to look more like `delta`'s output.
---   - Set `g:terminal_color` values.
---   - Decide on whether I want to include a bunch of language specific highlights
---   - Figure out what to do with `tree-sitter` highlights.
---   - Stretch
---     - Add more highlights for plugins I use, and other popular plugins.
---     - Create monotone variant, where one base color is supplied, and all colors are generate
---       based on transformations of that colors.
 -- - Make tweaks to custom status line
 --   - Find a way to dynamically display current LSP status/progress/messages.
 --   - See if there's an easy way to show show Git sections when in terminal buffer.
@@ -87,12 +77,8 @@ wo.signcolumn     = 'yes' -- always have signcolumn open to avoid thing shifting
 o.fillchars       = 'stl: ,stlnc: ,vert:·,eob: ' -- No '~' on lines after end of file, other stuff
 
 -- Set colorscheme
-require'jonny.theme'.extraLushSpecs = {
-  'lush_theme.jonny.bufferline-nvim',
-  'lush_theme.jonny.statusline',
-  'lush_theme.jonny.telescope-nvim',
-}
-cmd 'colorscheme jonny'
+require'zenbones'
+cmd 'colorscheme zenbones'
 
 
 -- Terminal ----------------------------------------------------------------------------------------
