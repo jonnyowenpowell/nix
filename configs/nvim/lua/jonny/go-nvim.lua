@@ -12,7 +12,6 @@ require'go'.setup {
   max_line_len = 120,
   tag_transform = false, -- tag_transfer  check gomodifytags for details
   verbose = true,
-  log_path = vim.fn.expand("$HOME") .. "/tmp/gonvim.log",
   lsp_cfg = true,
   lsp_gofumpt = true,
   lsp_on_attach = true,
