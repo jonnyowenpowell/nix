@@ -95,12 +95,13 @@ in
 
     # Language servers
     # See `../configs/nvim/lua/jonny/nvim-lspconfig.lua` for configuration.
+    ccls
     nodePackages.bash-language-server
     nodePackages.vim-language-server
+    nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
     rnix-lsp
-    sumneko-lua-language-server
-  ];
+  ] ++ optional (pkgs.stdenv.system != "x86_64-darwin") sumneko-lua-language-server;
   # }}}
 }
 # vim: foldmethod=marker

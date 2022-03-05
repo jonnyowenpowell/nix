@@ -18,7 +18,6 @@
   home.packages = with pkgs; [
     # Development
     dotnet-sdk
-    go
     nodejs
     nodePackages.yarn
 

@@ -44,8 +44,6 @@ lspconf.sumneko_lua.setup {
   },
 }
 
-lspconf.tsserver.setup {}
-
 lspconf.vimls.setup {
   init_options = {
     iskeyword = '@,48-57,_,192-255,-#',
