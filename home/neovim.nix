@@ -25,7 +25,7 @@ let
 
   # https://github.com/ray-x/go.nvim
   go-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "go-nvim";
+    pname = "go.nvim";
     name = "go.nvim";
     src = pkgs.fetchFromGitHub {
       owner = "ray-x";
@@ -37,6 +37,7 @@ let
 
   # https://github.com/ray-x/guihua.lua
   guihua-lua = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "go.nvim";
     name = "guihua.lua";
     src = pkgs.fetchFromGitHub {
       owner = "ray-x";
@@ -49,6 +50,7 @@ let
   # theme
   # https://github.com/mcchrish/zenbones.nvim
   zenbones-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "zenbones.nvim";
     name = "zenbones.nvim";
     src = pkgs.fetchFromGitHub {
       owner = "mcchrish";
