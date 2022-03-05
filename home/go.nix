@@ -11,6 +11,10 @@
       url = "https://github.com/segmentio/golines";
       rev = "e6e2cf00858666ca672e2fe0753f8a2584cc3ee8";
     };
+    "golang.org/x/tools/gopls" = builtins.fetchGit { 
+      url = "https://go.googlesource.com/tools";
+      rev = "e155b03a0eccab1a0a9b476adc674d9b5034b6f5";
+    };
     "golang.org/x/tools/cmd/goimports" = builtins.fetchGit { 
       url = "https://go.googlesource.com/tools";
       rev = "e155b03a0eccab1a0a9b476adc674d9b5034b6f5";
