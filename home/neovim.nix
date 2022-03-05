@@ -31,6 +31,7 @@ let
       owner = "ray-x";
       repo = "go.nvim";
       rev = "0fe0a9ee3367f7bd1e9c9ab30d5b7d5e66b83fc6";
+      sha256 = "sha256-DyByErbti+bBr0IZMQLwpGgrRJsFUeFK7buJyFjj1NE=";
     };
   };
 
@@ -41,6 +42,7 @@ let
       owner = "ray-x";
       repo = "guihua.lua";
       rev = "dc31428364809b4388c007c227e3d5d39f1e4395";
+      sha256 = "sha256-Qi6aeHFrYChWbNr4sEE+6KPtTZSlmJRx2msYZK4Y/8s=";
     };
   };
 
@@ -52,6 +54,7 @@ let
       owner = "mcchrish";
       repo = "zenbones.nvim";
       rev = "1e0b792efd4cee41c8005d6b61a6e1f91a630c6b";
+      sha256 = "sha256-L9velRUwXaf6QhAx6gqsZT3Zf3LzuEKNUvLIvLyovmM=";
     };
   };
 in
