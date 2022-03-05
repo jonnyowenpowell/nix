@@ -1,14 +1,5 @@
 { config, lib, pkgs, ... }:
 
-    # "golang.org/x/tools/cmd/goimports" = builtins.fetchGit { 
-    #   url = "https://go.googlesource.com/tools";
-    #   rev = "e155b03a0eccab1a0a9b476adc674d9b5034b6f5";
-    # };
-    # "golang.org/x/tools/cmd/gorename" = builtins.fetchGit { 
-    #   url = "https://go.googlesource.com/tools";
-    #   rev = "e155b03a0eccab1a0a9b476adc674d9b5034b6f5";
-    # };
-
 
     # "github.com/davidrjenni/reftools/cmd/fillstruct" = builtins.fetchGit { 
     #   url = "https://github.com/davidrjenni/reftools";
@@ -25,11 +16,11 @@
 
 let
   golines = pkgs.callPackage ../pkgs/golines.nix {};
+  goimports = pkgs.callPackage ../pkgs/goimports.nix {};
+  gorename = pkgs.callPackage ../pkgs/gorename.nix {};
   # fillstruct = pkgs.callPackage ../pkgs/fillstruct.nix {};
   # fillswitch = pkgs.callPackage ../pkgs/fillswitch.nix {};
   # fixplurals = pkgs.callPackage ../pkgs/fixplurals.nix {};
-  # goimports = pkgs.callPackage ../pkgs/goimports.nix {};
-  # gorename = pkgs.callPackage ../pkgs/gorename.nix {};
 in {
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat
@@ -65,11 +56,11 @@ in {
     pkgs.richgo
 
     golines
+    goimports
+    gorename
     # fillstruct
     # fillswitch
     # fixplurals
-    # goimports
-    # gorename
 
     # Nix
     comma
