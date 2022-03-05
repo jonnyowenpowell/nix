@@ -12,7 +12,7 @@ buildGoModule rec {
   };
 
   modRoot = "cmd/goimports";
-  vendorSha256 = lib.fakeSha256;
+  vendorSha256 = "pQpattmS9VmO3ZIQUFn66az8GSmB4IvYhTTCFn6SUmo=";
 
   doCheck = false;
 
