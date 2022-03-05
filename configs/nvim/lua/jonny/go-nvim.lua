@@ -11,7 +11,6 @@ require'go'.setup {
   gofmt = 'gofumpt',
   max_line_len = 120,
   tag_transform = false, -- tag_transfer  check gomodifytags for details
-  verbose = true,
   lsp_cfg = true,
   lsp_gofumpt = true,
   lsp_on_attach = true,
