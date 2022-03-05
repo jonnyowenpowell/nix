@@ -12,7 +12,7 @@ buildGoModule rec {
   };
 
   modRoot = "cmd/gorename";
-  vendorSha256 = "pQpattmS9VmO3ZIQUFn66az8GSmB4IvYhTTCFn6SUmo=";
+  vendorSha256 = lib.fakeSha256;
 
   doCheck = false;
 
