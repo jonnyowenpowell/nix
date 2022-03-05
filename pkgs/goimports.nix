@@ -8,7 +8,7 @@ buildGoModule rec {
     owner = "golang";
     repo = "tools";
     rev = "v${version}";
-    sha256 = lib.fakeSha256;
+    sha256 = "jIWFzfByho+uocQVrb0TMWErsxJniLYMAoPjp3178e4=";
   };
 
   modRoot = "cmd/goimports";
