@@ -37,7 +37,7 @@ let
 
   # https://github.com/ray-x/guihua.lua
   guihua-lua = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "go.nvim";
+    pname = "guihua.lua";
     name = "guihua.lua";
     src = pkgs.fetchFromGitHub {
       owner = "ray-x";
