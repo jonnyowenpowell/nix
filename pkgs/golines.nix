@@ -4,7 +4,7 @@ buildGoModule rec {
   pname = "golines";
   version = "0.8.0";
 
-  vendorSha256 = lib.fakeSha256;
+  vendorSha256 = "ZHL2hQnJXpZu42hQZzIIaEzINSS+5BOL9dxAVCp0nMs=";
 
   doCheck = false;
 
