@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-{
+let
+  cfg = config.programs.kitty.extras;
+in {
   options.programs.kitty.extras = {
     useSymbolsFromNerdFont = mkOption {
       type = types.str;
