@@ -76,12 +76,7 @@ in
 
   programs.neovim.plugins = with pkgs.vimPlugins; [
     nvim-lspconfig
-    vim-commentary
-    vim-surround
-    vim-fugitive
-    which-key-nvim
   ] ++ map pluginWithConfig [
-    gitsigns-nvim
     (pluginWithDeps go-nvim [ guihua-lua nvim-dap nvim-dap-ui nvim-dap-virtual-text ])
     kanagawa-nvim
     (pluginWithDeps navigator-lua [ guihua-lua ])
