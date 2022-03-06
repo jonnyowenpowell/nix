@@ -77,9 +77,9 @@ in
   programs.neovim.plugins = with pkgs.vimPlugins; [
     moses-nvim
     nvim-lspconfig
-    vim-commentary
     telescope-symbols-nvim
     telescope-z-nvim
+    vim-commentary
     vim-surround
     vim-fugitive
     which-key-nvim
@@ -91,6 +91,7 @@ in
     (pluginWithDeps navigator-lua [ guihua-lua ])
     nvim-treesitter
     (pluginWithDeps telescope-nvim [ nvim-web-devicons ])
+    vim-floaterm
   ];
 
   # From personal addon module `../modules/home/programs/neovim/extras.nix`
