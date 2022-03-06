@@ -7,15 +7,21 @@
   programs.git.enable = true;
 
   programs.git.extraConfig = {
-    advice.addignoredfile = false;
-    commit.gpgsign = true;
+    # General
     core.autocrlf = "input";
+    advice.addignoredfile = false;
+    pull.rebase = true;
+    init.defaultbranch = "main";
+
+    # Helpers
     core.editor = "${pkgs.neovim}/bin/nvim";
     diff.colorMoved = "default";
-    init.defaultbranch = "main";
+    merge.conflictstyle = "diff3";
+
+    # Signing
+    commit.gpgsign = true;
     tag.forcesignannotated = true;
     user.signingkey = "E1F65143FF8083FE";
-    pull.rebase = true;
   };
 
   programs.git.ignores = [
@@ -26,5 +32,13 @@
   programs.git.userName = config.home.user-info.fullName;
 
   # Enhanced diffs
-  programs.git.delta.enable = true;
+  programs.git.delta = {
+    enable = true;
+    options = {
+      navigate = true;
+      line-numbers = true;
+      side-by-side = true;
+      whitespace-error-style = "22 reverse";
+    };
+  };
 }
