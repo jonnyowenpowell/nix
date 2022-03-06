@@ -6,14 +6,6 @@ let
 
   pluginWithDeps = plugin: deps: plugin.overrideAttrs (_: { dependencies = deps; });
 
-  pluginWithConfig = plugin: {
-    plugin = plugin;
-    optional = true;
-    config = ''
-      lua require('jonny.' .. string.gsub('${plugin.pname}', '%.', '-'))
-    '';
-  };
-
   # theme: kanagawa.nvim
   kanagawa-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "kanagawa.nvim";
@@ -76,7 +68,6 @@ in
 
   programs.neovim.plugins = with pkgs.vimPlugins; [
     nvim-lspconfig
-  ] ++ map pluginWithConfig [
     (pluginWithDeps go-nvim [ guihua-lua nvim-dap nvim-dap-ui nvim-dap-virtual-text ])
     kanagawa-nvim
     (pluginWithDeps navigator-lua [ guihua-lua ])
