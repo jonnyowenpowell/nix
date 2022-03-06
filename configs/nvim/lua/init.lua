@@ -16,6 +16,9 @@ require'kanagawa'.setup {
 
 vim.cmd 'colorscheme kanagawa'
 
+vim.cmd 'packadd plenary.nvim'
+vim.cmd 'packadd telescope.nvim'
+
 vim.cmd 'packadd nvim-lspconfig'
 vim.cmd 'packadd guihua.lua'
 vim.cmd 'packadd navigator.lua'

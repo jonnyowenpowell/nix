@@ -72,6 +72,7 @@ in
     kanagawa-nvim
     (pluginWithDeps navigator-lua [ guihua-lua ])
     nvim-treesitter
+    (pluginWithDeps telescope-nvim [ plenary-nvim ])
   ];
 
   programs.neovim.extraPackages = with pkgs; [
