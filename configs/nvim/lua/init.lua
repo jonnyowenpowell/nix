@@ -76,10 +76,6 @@ wo.relativenumber = true  -- relative line numbers
 wo.signcolumn     = 'yes' -- always have signcolumn open to avoid thing shifting around all the time
 o.fillchars       = 'stl: ,stlnc: ,vert:·,eob: ' -- No '~' on lines after end of file, other stuff
 
--- Set colorscheme
-require'zenbones'
-cmd 'colorscheme zenbones'
-
 
 -- Terminal ----------------------------------------------------------------------------------------
 

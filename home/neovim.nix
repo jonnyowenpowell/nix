@@ -47,15 +47,15 @@ let
   };
 
   # theme
-  # https://github.com/mcchrish/zenbones.nvim
-  zenbones-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "zenbones.nvim";
-    name = "zenbones.nvim";
+  # https://github.com/rebelot/kanagawa.nvim
+  kanagawa-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "kanagawa.nvim";
+    name = "kanagawa.nvim";
     src = pkgs.fetchFromGitHub {
-      owner = "mcchrish";
-      repo = "zenbones.nvim";
-      rev = "1e0b792efd4cee41c8005d6b61a6e1f91a630c6b";
-      sha256 = "sha256-L9velRUwXaf6QhAx6gqsZT3Zf3LzuEKNUvLIvLyovmM=";
+      owner = "rebelot";
+      repo = "kanagawa.nvim";
+      rev = "63cb5cc1a80def7da4bb375adee1587866250a17";
+      sha256 = "sha256-TStFrx0u/MwSDcimvuwRRiyajkVq+rF5HWYCRsL4PCI=";
     };
   };
 in
@@ -70,7 +70,6 @@ in
   programs.neovim.extraConfig = "lua require('init')";
 
   programs.neovim.plugins = with pkgs.vimPlugins; [
-    (pluginWithDeps zenbones-nvim [ lush-nvim ])
     moses-nvim
     tabular
     vim-commentary
@@ -89,6 +88,7 @@ in
     goyo-vim
     vim-fugitive
   ] ++ map nonVSCodePluginWithConfig [
+    kanagawa-nvim
     editorconfig-vim
     (pluginWithDeps galaxyline-nvim [ nvim-web-devicons ])
     gitsigns-nvim
