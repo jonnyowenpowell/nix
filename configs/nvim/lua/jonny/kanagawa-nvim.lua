@@ -16,4 +16,4 @@ require'kanagawa'.setup {
     dimInactive = false,
 }
 
-cmd 'colorscheme kanagawa'
+vim.cmd 'colorscheme kanagawa'
