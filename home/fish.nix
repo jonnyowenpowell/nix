@@ -4,7 +4,6 @@ let
   inherit (lib) elem optionalString;
   inherit (config.home.user-info) nixConfigDirectory;
 in
-
 {
   # Fish Shell
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.fish.enable
@@ -13,7 +12,6 @@ in
   # Add Fish plugins
   home.packages = [ pkgs.fishPlugins.done ];
 
-  programs.fish.functions = {
   # Aliases
   programs.fish.shellAliases = with pkgs; {
     # Nix related
@@ -60,7 +58,7 @@ in
     set -l orange ${surimiOrange}
     set -l yellow ${boatYellow2}
     set -l green ${autumnGreen}
-    set -l purple ${957fb8}
+    set -l purple ${oniViolet}
     set -l cyan ${waveAqua2}
     set -l pink ${sakuraPink}
 
