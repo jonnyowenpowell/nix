@@ -28,17 +28,6 @@ o.shiftwidth = o.tabstop -- Width of auto-indents
 o.splitbelow = true -- open horizontal splits below instead of above which is the default
 o.splitright = true -- open vertical splits to the right instead of the left with is the default
 
--- Some basic autocommands
-augroup { name = 'VimBasics', cmds = {
-  -- Check if file has changed on disk, if it has and buffer has no changes, reload it
-  { 'BufEnter,FocusGained,CursorHold,CursorHoldI', '*', 'checktime' },
-  -- Remove trailing whitespace before write
-  { 'BufWritePre', '*', [[%s/\s\+$//e]] },
-  -- Highlight yanked text
-  { 'TextYankPost', '*', [[silent! lua vim.highlight.on_yank {higroup='Search', timeout=150}]] },
-}}
-
-
 -- UI ----------------------------------------------------------------------------------------------
 
 -- Set UI related options
@@ -49,23 +38,6 @@ wo.number         = true  -- display numberline
 wo.relativenumber = true  -- relative line numbers
 wo.signcolumn     = 'yes' -- always have signcolumn open to avoid thing shifting around all the time
 o.fillchars       = 'stl: ,stlnc: ,vert:·,eob: ' -- No '~' on lines after end of file, other stuff
-
-
--- Terminal ----------------------------------------------------------------------------------------
-
-augroup { name = 'NeovimTerm', cmds = {
-  -- Set options for terminal buffers
-  { 'TermOpen', '*', 'setlocal nonumber | setlocal norelativenumber | setlocal signcolumn=no' },
-}}
-
--- Leader only used for this one case
-g.mapleader = '`'
-keymaps { mode = 't', opts = { 'noremap' }, maps = {
-  -- Enter normal mode in terminal using `<ESC>` like everywhere else.
-  { '<ESC>', [[<C-\><C-n>]] },
-  -- Sometimes you want to send `<ESC>` to the terminal though.
-  { '<leader><ESC>', '<ESC>' },
-}}
 
 
 -- WhichKey maps -----------------------------------------------------------------------------------
