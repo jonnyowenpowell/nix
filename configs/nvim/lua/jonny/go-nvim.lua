@@ -1,7 +1,6 @@
 -- go.nvim
 -- https://github.com/ray-x/go.nvim
 vim.cmd 'packadd go.nvim'
-vim.cmd 'packadd guihua.lua'
 vim.cmd 'packadd nvim-dap'
 vim.cmd 'packadd nvim-dap-ui'
 vim.cmd 'packadd nvim-dap-virtual-text'

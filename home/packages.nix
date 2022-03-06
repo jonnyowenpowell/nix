@@ -1,11 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  golines = pkgs.callPackage ../pkgs/golines.nix {};
-  fillstruct = pkgs.callPackage ../pkgs/fillstruct.nix {};
-  fillswitch = pkgs.callPackage ../pkgs/fillswitch.nix {};
-  fixplurals = pkgs.callPackage ../pkgs/fixplurals.nix {};
-in {
+{
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.bat.enable
@@ -21,6 +16,7 @@ in {
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 
+  # Go
   programs.go.enable = true;
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
@@ -30,20 +26,6 @@ in {
     dotnet-sdk
     nodejs
     nodePackages.yarn
-    ## Go
-    gopls
-    gofumpt
-    gomodifytags
-    gotests
-    iferr
-    impl
-    delve
-    richgo
-    golines
-    gotools
-    fillstruct
-    fillswitch
-    fixplurals
 
     # Nix
     comma

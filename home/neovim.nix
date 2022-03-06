@@ -6,51 +6,18 @@ let
 
   pluginWithDeps = plugin: deps: plugin.overrideAttrs (_: { dependencies = deps; });
 
-  nonVSCodePluginWithConfig = plugin: {
+  pluginWithConfig = plugin: {
     plugin = plugin;
     optional = true;
     config = ''
-      if !exists('g:vscode')
-        lua require('jonny.' .. string.gsub('${plugin.pname}', '%.', '-'))
-      endif
+      lua require('jonny.' .. string.gsub('${plugin.pname}', '%.', '-'))
     '';
   };
 
-  nonVSCodePlugin = plugin: {
-    plugin = plugin;
-    optional = true;
-    config = ''if !exists('g:vscode') | packadd ${plugin.pname} | endif'';
-  };
-
-  # https://github.com/ray-x/go.nvim
-  go-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "go.nvim";
-    name = "go.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "ray-x";
-      repo = "go.nvim";
-      rev = "0fe0a9ee3367f7bd1e9c9ab30d5b7d5e66b83fc6";
-      sha256 = "sha256-DyByErbti+bBr0IZMQLwpGgrRJsFUeFK7buJyFjj1NE=";
-    };
-  };
-
-  # https://github.com/ray-x/guihua.lua
-  guihua-lua = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "guihua.lua";
-    name = "guihua.lua";
-    src = pkgs.fetchFromGitHub {
-      owner = "ray-x";
-      repo = "guihua.lua";
-      rev = "dc31428364809b4388c007c227e3d5d39f1e4395";
-      sha256 = "sha256-Qi6aeHFrYChWbNr4sEE+6KPtTZSlmJRx2msYZK4Y/8s=";
-    };
-  };
-
-  # theme
-  # https://github.com/rebelot/kanagawa.nvim
+  # theme: kanagawa.nvim
   kanagawa-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "kanagawa.nvim";
-    name = "kanagawa.nvim";
+    name = "kanagawa.nvim"; # https://github.com/rebelot/kanagawa.nvim
     src = pkgs.fetchFromGitHub {
       owner = "rebelot";
       repo = "kanagawa.nvim";
@@ -58,6 +25,32 @@ let
       sha256 = "sha256-TStFrx0u/MwSDcimvuwRRiyajkVq+rF5HWYCRsL4PCI=";
     };
   };
+
+  # go.nvim
+  go-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "go.nvim";
+    name = "go.nvim"; # https://github.com/ray-x/go.nvim
+    src = pkgs.fetchFromGitHub {
+      owner = "ray-x";
+      repo = "go.nvim";
+      rev = "0fe0a9ee3367f7bd1e9c9ab30d5b7d5e66b83fc6";
+      sha256 = "sha256-DyByErbti+bBr0IZMQLwpGgrRJsFUeFK7buJyFjj1NE=";
+    };
+  };
+  guihua-lua = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "guihua.lua";
+    name = "guihua.lua"; # https://github.com/ray-x/guihua.lua
+    src = pkgs.fetchFromGitHub {
+      owner = "ray-x";
+      repo = "guihua.lua";
+      rev = "dc31428364809b4388c007c227e3d5d39f1e4395";
+      sha256 = "sha256-Qi6aeHFrYChWbNr4sEE+6KPtTZSlmJRx2msYZK4Y/8s=";
+    };
+  };
+  golines = pkgs.callPackage ../pkgs/golines.nix {};
+  fillstruct = pkgs.callPackage ../pkgs/fillstruct.nix {};
+  fillswitch = pkgs.callPackage ../pkgs/fillswitch.nix {};
+  fixplurals = pkgs.callPackage ../pkgs/fixplurals.nix {};
 in
 {
   # Neovim
@@ -71,38 +64,21 @@ in
 
   programs.neovim.plugins = with pkgs.vimPlugins; [
     moses-nvim
-    tabular
+    nvim-lspconfig
     vim-commentary
-    vim-eunuch
-    vim-haskell-module-name
-    vim-surround
-  ] ++ map (p: { plugin = p; optional = true; }) [
     telescope-symbols-nvim
     telescope-z-nvim
-    which-key-nvim
-    zoomwintab-vim
-  ] ++ map nonVSCodePlugin [
-    agda-vim
-    copilot-vim
-    direnv-vim
-    goyo-vim
+    vim-surround
     vim-fugitive
-  ] ++ map nonVSCodePluginWithConfig [
-    kanagawa-nvim
-    editorconfig-vim
-    (pluginWithDeps galaxyline-nvim [ nvim-web-devicons ])
+    which-key-nvim
+  ] ++ map pluginWithConfig [
     gitsigns-nvim
     (pluginWithDeps go-nvim [ guihua-lua nvim-dap nvim-dap-ui nvim-dap-virtual-text ])
-    indent-blankline-nvim
+    kanagawa-nvim
     lspsaga-nvim
-    (pluginWithDeps bufferline-nvim [ nvim-web-devicons ])
-    (pluginWithDeps nvim-compe [ compe-tabnine ])
-    nvim-lspconfig
+    navigator
     nvim-treesitter
     (pluginWithDeps telescope-nvim [ nvim-web-devicons ])
-    vim-floaterm
-    vim-pencil
-    vim-polyglot
   ];
 
   # From personal addon module `../modules/home/programs/neovim/extras.nix`
@@ -112,16 +88,26 @@ in
 
   programs.neovim.extraPackages = with pkgs; [
     neovim-remote
-    gcc # needed for nvim-treesitter
-    tree-sitter # needed for nvim-treesitter
 
-    # Language servers
-    # See `../configs/nvim/lua/jonny/nvim-lspconfig.lua` for configuration.
-    ccls
-    nodePackages.bash-language-server
-    nodePackages.vim-language-server
-    nodePackages.vscode-langservers-extracted
-    nodePackages.yaml-language-server
-    rnix-lsp
-  ] ++ optional (pkgs.stdenv.system != "x86_64-darwin") sumneko-lua-language-server;
+    # language servers
+    gopls
+
+    # go.nvim
+    gofumpt
+    gomodifytags
+    gotests
+    iferr
+    impl
+    delve
+    richgo
+    golines
+    gotools
+    fillstruct
+    fillswitch
+    fixplurals
+
+    # nvim-treesitter
+    gcc
+    tree-sitter
+  ];
 }

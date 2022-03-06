@@ -14,21 +14,6 @@ local g = vim.g
 local cmd = vim.cmd
 local env = vim.env
 
--- TODO --------------------------------------------------------------------------------------------
-
--- - Make tweaks to custom status line
---   - Find a way to dynamically display current LSP status/progress/messages.
---   - See if there's an easy way to show show Git sections when in terminal buffer.
---   - Revamp conditions for when segments are displayed
---   - A bunch of other small tweaks.
--- - List searching with telescope.nvim.
---   - Improve workspace folder detection on my telescope.nvim extensions
--- - Other
---   - Figure out how to get Lua LSP to be aware Nvim plugins. Why aren't they on `package.path`?
---   - Play around with `tree-sitter`.
---   - Look into replacing floaterm-vim with vim-toggleterm.lua.
-
-
 -- Basic Vim Config --------------------------------------------------------------------------------
 
 o.scrolloff  = 10   -- start scrolling when cursor is within 5 lines of the ledge
@@ -53,16 +38,14 @@ o.splitbelow = true -- open horizontal splits below instead of above which is th
 o.splitright = true -- open vertical splits to the right instead of the left with is the default
 
 -- Some basic autocommands
-if g.vscode == nil then
-  augroup { name = 'VimBasics', cmds = {
-    -- Check if file has changed on disk, if it has and buffer has no changes, reload it
-    { 'BufEnter,FocusGained,CursorHold,CursorHoldI', '*', 'checktime' },
-    -- Remove trailing whitespace before write
-    { 'BufWritePre', '*', [[%s/\s\+$//e]] },
-    -- Highlight yanked text
-    { 'TextYankPost', '*', [[silent! lua vim.highlight.on_yank {higroup='Search', timeout=150}]] },
-  }}
-end
+augroup { name = 'VimBasics', cmds = {
+  -- Check if file has changed on disk, if it has and buffer has no changes, reload it
+  { 'BufEnter,FocusGained,CursorHold,CursorHoldI', '*', 'checktime' },
+  -- Remove trailing whitespace before write
+  { 'BufWritePre', '*', [[%s/\s\+$//e]] },
+  -- Highlight yanked text
+  { 'TextYankPost', '*', [[silent! lua vim.highlight.on_yank {higroup='Search', timeout=150}]] },
+}}
 
 
 -- UI ----------------------------------------------------------------------------------------------
