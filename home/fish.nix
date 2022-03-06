@@ -74,14 +74,6 @@ in
 
         # Use correct theme for `bat`.
         set -xg BAT_THEME "Solarized ($term_background)"
-      '' + optionalString (elem pkgs.bottom config.home.packages) ''
-
-        # Use correct theme for `btm`.
-        if test "$term_background" = light
-          alias btm "btm --color default-light"
-        else
-          alias btm "btm --color default"
-        end
       '' + optionalString config.programs.neovim.enable ''
 
       # Set `background` of all running Neovim instances.
@@ -148,7 +140,8 @@ in
     set -g fish_color_escape       red       # color of character escapes like '\n' and and '\x70'
     set -g fish_color_cancel       red       # color of the '^C' indicator on a canceled command
 
-    ${optionalString (elem pkgs.go-task config.home.packages) "alias gtask 'task -d (git rev-parse --show-toplevel)'"}
+  '' + optionalString (elem pkgs.go-task config.home.packages) ''
+        alias gtask 'task -d (git rev-parse --show-toplevel)'
   '';
   # }}}
 }
