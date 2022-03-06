@@ -60,7 +60,6 @@ vim.cmd 'packadd telescope.nvim'
 vim.cmd 'packadd nvim-treesitter'
 vim.cmd 'packadd guihua.lua'
 vim.cmd 'packadd nvim-lspconfig'
-vim.cmd 'packadd navigator.lua'
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = 'maintained',
@@ -69,22 +68,16 @@ require'nvim-treesitter.configs'.setup {
   indent = { enable = true },
 }
 
-require'navigator'.setup {
-  debug = true
-}
-
-
-
-vim.cmd 'packadd go.nvim'
 vim.cmd 'packadd nvim-dap'
 vim.cmd 'packadd nvim-dap-ui'
 vim.cmd 'packadd nvim-dap-virtual-text'
+vim.cmd 'packadd go.nvim'
 
 require'go'.setup {
   goimport='goimport',
   gofmt = 'gofumpt',
   max_line_len = 120,
-  tag_transform = false, -- tag_transfer  check gomodifytags for details
+  tag_transform = false,
   lsp_cfg = true,
   lsp_gofumpt = true,
   lsp_on_attach = true,

@@ -16,18 +16,6 @@ let
     };
   };
 
-  # navigator.lua
-  navigator-lua = pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "navigator.lua";
-    name = "navigator.lua"; # https://github.com/ray-x/navigator.lua
-    src = pkgs.fetchFromGitHub {
-      owner = "ray-x";
-      repo = "navigator.lua";
-      rev = "v0.3.2";
-      sha256 = "sha256-v4QHqWvHw9SYw63Wh7kDMj0gj7w2iSJnHNsbKymKcH0=";
-    };
-  };
-
   # go.nvim
   go-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "go.nvim";
@@ -72,7 +60,6 @@ in
     nvim-lspconfig
     go-nvim
     kanagawa-nvim
-    navigator-lua
     nvim-treesitter
     plenary-nvim
     telescope-nvim
