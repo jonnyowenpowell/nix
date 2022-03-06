@@ -1,19 +1,5 @@
 { config, lib, pkgs, ... }:
 
-
-    # "github.com/davidrjenni/reftools/cmd/fillstruct" = builtins.fetchGit { 
-    #   url = "https://github.com/davidrjenni/reftools";
-    #   rev = "40322ffdc2e46fd7920d1f8250051bbd2f3bd34d";
-    # };
-    # "github.com/davidrjenni/reftools/cmd/fixplurals" = builtins.fetchGit { 
-    #   url = "https://github.com/davidrjenni/reftools";
-    #   rev = "40322ffdc2e46fd7920d1f8250051bbd2f3bd34d";
-    # };
-    # "github.com/davidrjenni/reftools/cmd/fillswitch" = builtins.fetchGit { 
-    #   url = "https://github.com/davidrjenni/reftools";
-    #   rev = "40322ffdc2e46fd7920d1f8250051bbd2f3bd34d";
-    # };
-
 let
   golines = pkgs.callPackage ../pkgs/golines.nix {};
   fillstruct = pkgs.callPackage ../pkgs/fillstruct.nix {};
@@ -26,6 +12,7 @@ in {
   programs.bat.enable = true;
   programs.bat.config = {
     style = "plain";
+    theme = "base16";
   };
 
   # Direnv, load and unload environment variables depending on the current directory.
@@ -52,7 +39,6 @@ in {
     impl
     delve
     richgo
-
     golines
     gotools
     fillstruct
