@@ -26,6 +26,18 @@ let
     };
   };
 
+  # navigator.lua
+  navigator-lua = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "navigator.lua";
+    name = "navigator.lua"; # https://github.com/ray-x/navigator.lua
+    src = pkgs.fetchFromGitHub {
+      owner = "ray-x";
+      repo = "navigator.lua";
+      rev = "035917c57ac19aceb21271c6ae08fa719d0dea22";
+      sha256 = "sha256-lFjGuYToX0XjeEFPALrGhZxm8D6dT51iLC+WcCyNUew=";
+    };
+  };
+
   # go.nvim
   go-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "go.nvim";
@@ -76,7 +88,7 @@ in
     (pluginWithDeps go-nvim [ guihua-lua nvim-dap nvim-dap-ui nvim-dap-virtual-text ])
     kanagawa-nvim
     lspsaga-nvim
-    navigator
+    (pluginWithDeps navigator-lua [ guihua-lua ])
     nvim-treesitter
     (pluginWithDeps telescope-nvim [ nvim-web-devicons ])
   ];
