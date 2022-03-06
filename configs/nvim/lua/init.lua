@@ -40,12 +40,12 @@ vim.cmd 'packadd kanagawa.nvim'
 
 require'kanagawa'.setup {
   undercurl = true,
-  commentStyle = "italic",
-  functionStyle = "NONE",
-  keywordStyle = "italic",
-  statementStyle = "bold",
-  typeStyle = "NONE",
-  variablebuiltinStyle = "italic",
+  commentStyle = 'italic',
+  functionStyle = 'NONE',
+  keywordStyle = 'italic',
+  statementStyle = 'bold',
+  typeStyle = 'NONE',
+  variablebuiltinStyle = 'italic',
   specialReturn = true,
   specialException = true, 
   transparent = false,
@@ -57,18 +57,23 @@ vim.cmd 'colorscheme kanagawa'
 vim.cmd 'packadd plenary.nvim'
 vim.cmd 'packadd telescope.nvim'
 
-vim.cmd 'packadd nvim-lspconfig'
-vim.cmd 'packadd guihua.lua'
-vim.cmd 'packadd navigator.lua'
 vim.cmd 'packadd nvim-treesitter'
+vim.cmd 'packadd guihua.lua'
+vim.cmd 'packadd nvim-lspconfig'
+vim.cmd 'packadd navigator.lua'
 
-require'navigator'.setup()
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = 'maintained',
   highlight = { enable = true },
   incremental_selection = { enable = true },
   indent = { enable = true },
 }
+
+require'navigator'.setup {
+  debug = true
+}
+
+
 
 vim.cmd 'packadd go.nvim'
 vim.cmd 'packadd nvim-dap'
