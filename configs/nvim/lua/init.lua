@@ -1,17 +1,17 @@
 vim.cmd 'packadd kanagawa.nvim'
 
 require'kanagawa'.setup {
-    undercurl = true,
-    commentStyle = "italic",
-    functionStyle = "NONE",
-    keywordStyle = "italic",
-    statementStyle = "bold",
-    typeStyle = "NONE",
-    variablebuiltinStyle = "italic",
-    specialReturn = true,
-    specialException = true, 
-    transparent = false,
-    dimInactive = false,
+  undercurl = true,
+  commentStyle = "italic",
+  functionStyle = "NONE",
+  keywordStyle = "italic",
+  statementStyle = "bold",
+  typeStyle = "NONE",
+  variablebuiltinStyle = "italic",
+  specialReturn = true,
+  specialException = true, 
+  transparent = false,
+  dimInactive = false,
 }
 
 vim.cmd 'colorscheme kanagawa'
