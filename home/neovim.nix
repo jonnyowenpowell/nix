@@ -75,10 +75,7 @@ in
   programs.neovim.extraConfig = "lua require('init')";
 
   programs.neovim.plugins = with pkgs.vimPlugins; [
-    moses-nvim
     nvim-lspconfig
-    telescope-symbols-nvim
-    telescope-z-nvim
     vim-commentary
     vim-surround
     vim-fugitive
@@ -87,21 +84,11 @@ in
     gitsigns-nvim
     (pluginWithDeps go-nvim [ guihua-lua nvim-dap nvim-dap-ui nvim-dap-virtual-text ])
     kanagawa-nvim
-    lspsaga-nvim
     (pluginWithDeps navigator-lua [ guihua-lua ])
     nvim-treesitter
-    (pluginWithDeps telescope-nvim [ nvim-web-devicons ])
-    vim-floaterm
   ];
 
-  # From personal addon module `../modules/home/programs/neovim/extras.nix`
-  programs.neovim.extras.termBufferAutoChangeDir = true;
-  programs.neovim.extras.nvrAliases.enable = true;
-  # }}}
-
   programs.neovim.extraPackages = with pkgs; [
-    neovim-remote
-
     # language servers
     gopls
 

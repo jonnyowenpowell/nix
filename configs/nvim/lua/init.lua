@@ -5,7 +5,6 @@ local keymap = utils.keymap
 local keymaps = utils.keymaps
 local bufkeymaps = utils.bufkeymaps
 local s = utils.symbols
-local _ = require 'moses'
 
 -- Add some aliases for Neovim Lua API
 local o = vim.o
@@ -88,8 +87,6 @@ wk.setup { plugins = { spelling = { enabled = true } } }
 
 -- Spaced prefiexd in Normal mode
 wk.register ({
-  [' '] = { '<Cmd>packadd vim-floaterm | FloatermToggle<CR>', 'Toggle floating terminal' },
-
   -- Tabs
   t = {
     name = '+Tabs',
@@ -130,7 +127,6 @@ wk.register ({
     T = { '<Cmd>wincmd T<CR>' , 'Move to new tab'          },
     r = { '<Cmd>wincmd r<CR>' , 'Rotate clockwise'         },
     R = { '<Cmd>wincmd R<CR>' , 'Rotate counter-clockwise' },
-    z = { '<Cmd>packadd zoomwintab.vim | ZoomWinTabToggle<CR>', 'Toggle zoom' },
     -- Resize
     ['='] = { '<Cmd>wincmd =<CR>'            , 'All equal size'   },
     ['-'] = { '<Cmd>resize -5<CR>'           , 'Decrease height'  },
@@ -161,79 +157,5 @@ wk.register ({
       N = { require'gitsigns'.prev_hunk       , 'Go to prev' },
       p = { require'gitsigns'.preview_hunk    , 'Preview'    },
     },
-    -- telescope.nvim lists
-    l = {
-      name = '+Lists',
-      s = { '<Cmd>Telescope git_status<CR>'  , 'Status'         },
-      c = { '<Cmd>Telescope git_commits<CR>' , 'Commits'        },
-      C = { '<Cmd>Telescope git_commits<CR>' , 'Buffer commits' },
-      b = { '<Cmd>Telescope git_branches<CR>' , 'Branches'       },
-    },
-    -- Other
-    v = { '<Cmd>!gh repo view --web<CR>' , 'View on GitHub' },
-  },
-
-  -- Language server
-  l = {
-    name = '+LSP',
-    h = { '<Cmd>Lspsaga hover_doc<CR>'            , 'Hover'                   },
-    d = { vim.lsp.buf.definition                  , 'Jump to definition'      },
-    D = { vim.lsp.buf.declaration                 , 'Jump to declaration'     },
-    a = { '<Cmd>Lspsaga code_action<CR>'          , 'Code action'             },
-    f = { vim.lsp.buf.formatting                  , 'Format'                  },
-    r = { '<Cmd>Lspsaga rename<CR>'               , 'Rename'                  },
-    t = { vim.lsp.buf.type_definition             , 'Jump to type definition' },
-    n = { '<Cmd>Lspsaga diagnostic_jump_next<CR>' , 'Jump to next diagnostic' },
-    N = { '<Cmd>Lspsaga diagnostic_jump_prev<CR>' , 'Jump to prev diagnostic' },
-    l = {
-      name = '+Lists',
-      a = { '<Cmd>Telescope lsp_code_actions<CR>'       , 'Code actions'         },
-      A = { '<Cmd>Telescope lsp_range_code_actions<CR>' , 'Code actions (range)' },
-      r = { '<Cmd>Telescope lsp_references<CR>'         , 'References'           },
-      s = { '<Cmd>Telescope lsp_document_symbols<CR>'   , 'Documents symbols'    },
-      S = { '<Cmd>Telescope lsp_workspace_symbols<CR>'  , 'Workspace symbols'    },
-    },
-  },
-
-  -- Seaching with telescope.nvim
-  s = {
-    name = '+Search',
-    b = { '<Cmd>Telescope file_browser<CR>'              , 'File Browser'           },
-    f = { '<Cmd>Telescope find_files_workspace<CR>'      , 'Files in workspace'     },
-    F = { '<Cmd>Telescope find_files<CR>'                , 'Files in cwd'           },
-    g = { '<Cmd>Telescope live_grep_workspace<CR>'       , 'Grep in workspace'      },
-    G = { '<Cmd>Telescope live_grep<CR>'                 , 'Grep in cwd'            },
-    l = { '<Cmd>Telescope current_buffer_fuzzy_find<CR>' , 'Buffer lines'           },
-    o = { '<Cmd>Telescope oldfiles<CR>'                  , 'Old files'              },
-    t = { '<Cmd>Telescope builtin<CR>'                   , 'Telescope lists'        },
-    w = { '<Cmd>Telescope grep_string_workspace<CR>'     , 'Grep word in workspace' },
-    W = { '<Cmd>Telescope grep_string<CR>'               , 'Grep word in cwd'       },
-    v = {
-      name = '+Vim',
-      a = { '<Cmd>Telescope autocommands<CR>'    , 'Autocommands'    },
-      b = { '<Cmd>Telescope buffers<CR>'         , 'Buffers'         },
-      c = { '<Cmd>Telescope commands<CR>'        , 'Commands'        },
-      C = { '<Cmd>Telescope command_history<CR>' , 'Command history' },
-      h = { '<Cmd>Telescope highlights<CR>'      , 'Highlights'      },
-      q = { '<Cmd>Telescope quickfix<CR>'        , 'Quickfix list'   },
-      l = { '<Cmd>Telescope loclist<CR>'         , 'Location list'   },
-      m = { '<Cmd>Telescope keymaps<CR>'         , 'Keymaps'         },
-      s = { '<Cmd>Telescope spell_suggest<CR>'   , 'Spell suggest'   },
-      o = { '<Cmd>Telescope vim_options<CR>'     , 'Options'         },
-      r = { '<Cmd>Telescope registers<CR>'       , 'Registers'       },
-      t = { '<Cmd>Telescope filetypes<CR>'       , 'Filetypes'       },
-    },
-    s = { function() require'telescope.builtin'.symbols(require'telescope.themes'.get_dropdown({sources = {'emoji', 'math'}})) end, 'Symbols' },
-    z = { function() require'telescope'.extensions.z.list({cmd = {'fish', '-c', 'zq -ls'}}) end, 'Z' },
-    ['?'] = { '<Cmd>Telescope help_tags<CR>', 'Vim help' },
-  }
-
-}, { prefix = ' ' })
-
--- Spaced prefiexd in mode Visual mode
-wk.register ({
-  l = {
-    name = '+LSP',
-    a = { ':<C-U>Lspsaga range_code_action<CR>' , 'Code action (range)' , mode = 'v' },
   },
 }, { prefix = ' ' })

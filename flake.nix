@@ -17,7 +17,6 @@
     # Other sources
     flake-compat = { url = github:edolstra/flake-compat; flake = false; };
     flake-utils.url = github:numtide/flake-utils;
-    moses-lua = { url = github:Yonaba/Moses; flake = false; };
     prefmanager.url = github:malob/prefmanager;
     prefmanager.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
@@ -125,21 +124,6 @@
         # Overlay that adds various additional utility functions to `vimUtils`
         vimUtils = import ./overlays/vimUtils.nix;
 
-        # Overlay that adds some additional Neovim plugins
-        vimPlugins = final: prev:
-          let
-            inherit (self.overlays.vimUtils final prev) vimUtils;
-          in
-          {
-            vimPlugins = prev.vimPlugins.extend (super: self:
-              (vimUtils.buildVimPluginsFromFlakeInputs inputs [
-                # Add plugins here
-              ]) // {
-                moses-nvim = vimUtils.buildNeovimLuaPackagePluginFromFlakeInput inputs "moses-lua";
-              }
-            );
-          };
-
         # Overlay useful on Macs with Apple Silicon
         apple-silicon = final: prev: optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
           # Add access to x86 packages system is running Apple Silicon
@@ -182,7 +166,6 @@
         jonny-starship = import ./home/starship.nix;
         jonny-starship-symbols = import ./home/starship-symbols.nix;
 
-        programs-neovim-extras = import ./modules/home/programs/neovim/extras.nix;
         programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
         home-user-info = { lib, ... }: {
           options.home.user-info =
