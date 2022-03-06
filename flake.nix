@@ -24,8 +24,6 @@
 
   outputs = { self, darwin, home-manager, flake-utils, ... }@inputs:
     let
-      # Some building blocks ------------------------------------------------------------------- {{{
-
       inherit (darwin.lib) darwinSystem;
       inherit (inputs.nixpkgs-unstable.lib) attrValues makeOverridable optionalAttrs singleton;
 
@@ -70,11 +68,8 @@
           }
         )
       ];
-      # }}}
     in
     {
-
-      # System outputs ------------------------------------------------------------------------- {{{
 
       # My `nix-darwin` configs
       darwinConfigurations = rec {
@@ -101,9 +96,6 @@
           ];
         };
       };
-      # }}}
-
-      # Non-system outputs --------------------------------------------------------------------- {{{
 
       overlays = {
         # Overlays to add different versions `nixpkgs` into package set
@@ -162,6 +154,8 @@
         nodePackages = final: prev: {
           nodePackages = prev.nodePackages // import ./pkgs/node-packages { pkgs = prev; };
         };
+
+        colors = import ./overlays/colors.nix;
       };
 
       darwinModules = {
@@ -181,6 +175,7 @@
         jonny-git = import ./home/git.nix;
         jonny-git-aliases = import ./home/git-aliases.nix;
         jonny-gnupg-agent = import ./home/gnupg-agent.nix;
+        jonny-kitty = import ./home/kitty.nix;
         jonny-neovim = import ./home/neovim.nix;
         jonny-packages = import ./home/packages.nix;
         jonny-ssh = import ./home/ssh.nix;
@@ -188,12 +183,12 @@
         jonny-starship-symbols = import ./home/starship-symbols.nix;
 
         programs-neovim-extras = import ./modules/home/programs/neovim/extras.nix;
+        programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
         home-user-info = { lib, ... }: {
           options.home.user-info =
             (self.darwinModules.users-primaryUser { inherit lib; }).options.users.primaryUser;
         };
       };
-      # }}}
 
       # Add re-export `nixpkgs` packages with overlays.
       # This is handy in combination with `nix registry add my /Users/jonny/.config/nixpkgs`
@@ -210,4 +205,3 @@
       };
     });
 }
-# vim: foldmethod=marker

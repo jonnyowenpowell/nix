@@ -1,5 +1,4 @@
 { config, pkgs, lib, ... }:
-# Let-In ----------------------------------------------------------------------------------------{{{
 let
   inherit (lib) getName mkIf optional;
   inherit (config.lib.file) mkOutOfStoreSymlink;
@@ -60,13 +59,10 @@ let
     };
   };
 in
-# }}}
 {
   # Neovim
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.neovim.enable
   programs.neovim.enable = true;
-
-  # Config and plugins ------------------------------------------------------------------------- {{{
 
   # Minimal init.vim config to load Lua config. Nix and Home Manager don't currently support
   # `init.lua`.
@@ -114,8 +110,6 @@ in
   programs.neovim.extras.nvrAliases.enable = true;
   # }}}
 
-  # Required packages -------------------------------------------------------------------------- {{{
-
   programs.neovim.extraPackages = with pkgs; [
     neovim-remote
     gcc # needed for nvim-treesitter
@@ -130,6 +124,4 @@ in
     nodePackages.yaml-language-server
     rnix-lsp
   ] ++ optional (pkgs.stdenv.system != "x86_64-darwin") sumneko-lua-language-server;
-  # }}}
 }
-# vim: foldmethod=marker
