@@ -1,6 +1,6 @@
 -- kanagawa.nvim
 -- https://github.com/rebelot/kanagawa.nvim
-vim.cmd 'packadd rebelot/kanagawa.nvim'
+vim.cmd 'packadd kanagawa.nvim'
 
 require'kanagawa'.setup {
     undercurl = true,
