@@ -4,8 +4,6 @@ let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   inherit (config.home.user-info) nixConfigDirectory;
 
-  pluginWithDeps = plugin: deps: plugin.overrideAttrs (_: { dependencies = deps; });
-
   # theme: kanagawa.nvim
   kanagawa-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "kanagawa.nvim";
@@ -25,8 +23,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "ray-x";
       repo = "navigator.lua";
-      rev = "035917c57ac19aceb21271c6ae08fa719d0dea22";
-      sha256 = "sha256-lFjGuYToX0XjeEFPALrGhZxm8D6dT51iLC+WcCyNUew=";
+      rev = "v0.3.2";
+      sha256 = "sha256-v4QHqWvHw9SYw63Wh7kDMj0gj7w2iSJnHNsbKymKcH0=";
     };
   };
 
@@ -67,12 +65,17 @@ in
   programs.neovim.extraConfig = "lua require('init')";
 
   programs.neovim.plugins = with pkgs.vimPlugins; [
+    guihua-lua
+    nvim-dap
+    nvim-dap-ui
+    nvim-dap-virtual-text
     nvim-lspconfig
-    (pluginWithDeps go-nvim [ guihua-lua nvim-dap nvim-dap-ui nvim-dap-virtual-text ])
+    go-nvim
     kanagawa-nvim
-    (pluginWithDeps navigator-lua [ guihua-lua ])
+    navigator-lua
     nvim-treesitter
-    (pluginWithDeps telescope-nvim [ plenary-nvim ])
+    plenary-nvim
+    telescope-nvim
   ];
 
   programs.neovim.extraPackages = with pkgs; [
