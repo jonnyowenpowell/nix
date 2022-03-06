@@ -1,11 +1,3 @@
--- Add my personal helpers
-local utils = require 'jonny.utils'
-local augroup = utils.augroup
-local keymap = utils.keymap
-local keymaps = utils.keymaps
-local bufkeymaps = utils.bufkeymaps
-local s = utils.symbols
-
 -- Add some aliases for Neovim Lua API
 local o = vim.o
 local wo = vim.wo
