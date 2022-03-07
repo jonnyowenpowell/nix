@@ -70,6 +70,7 @@ in
     "google-chrome"
     "gpg-suite"
     "keybase"
+    "microsoft-azure-storage-explorer"
     "mongodb-compass"
     "secretive"
     "tor-browser"
