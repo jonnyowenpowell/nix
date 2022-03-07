@@ -31,6 +31,7 @@ in
   homebrew.global.noLock = true;
 
   homebrew.taps = [
+    "azure/functions"
     "homebrew/cask"
     "homebrew/cask-drivers"
     "homebrew/cask-fonts"
@@ -54,6 +55,7 @@ in
   };
 
   homebrew.brews = [
+    "azure-functions-core-tools@3"
     "mongocli"
     "mongosh"
     "mongodb-community@5.0"
