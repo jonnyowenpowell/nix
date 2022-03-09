@@ -34,7 +34,6 @@ in {
     # Neovim
     ## Language servers
     gopls
-    omnisharp-roslyn
 
     ## go.nvim
     gofumpt
