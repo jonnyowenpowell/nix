@@ -55,6 +55,7 @@ in
   };
 
   homebrew.brews = [
+    "azure-cli"
     "azure-functions-core-tools@3"
     "mongocli"
     "mongosh"
