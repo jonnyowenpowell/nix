@@ -74,8 +74,8 @@ vim.cmd 'packadd nvim-dap-virtual-text'
 vim.cmd 'packadd go.nvim'
 
 require'go'.setup {
-  goimport='goimport',
-  gofmt = 'gofumpt',
+  goimport='goimports',
+  gofmt = 'gopls',
   max_line_len = 120,
   tag_transform = false,
   lsp_cfg = true,
