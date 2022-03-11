@@ -30,6 +30,7 @@ in {
     dotnet-sdk
     nodejs
     nodePackages.yarn
+    terraform
 
     # Neovim
     ## Language servers
