@@ -27,6 +27,7 @@ in {
 
   home.packages = with pkgs; [
     # Development
+    azure-cli
     dotnet-sdk
     nodejs
     nodePackages.yarn
