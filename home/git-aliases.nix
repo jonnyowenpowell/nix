@@ -5,6 +5,7 @@
     aa = "add -A";
     ah = "!git add -N \":/*\" && git add -p \":/*\"";
     b = "branch";
+    bd = "branch -D";
     ignored = "!git ls-files -v | grep \"^[[:lower:]]\"";
     mm = "merge main";
     s = "status";
