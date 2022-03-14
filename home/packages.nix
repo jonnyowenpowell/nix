@@ -28,6 +28,7 @@ in {
   home.packages = with pkgs; [
     # Development
     dotnet-sdk
+    netlify-cli
     nodejs
     nodePackages.yarn
     terraform
