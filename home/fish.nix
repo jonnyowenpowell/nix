@@ -85,6 +85,8 @@ in
     set -g fish_pager_color_description $comment
 
   '' + optionalString (elem pkgs.go-task config.home.packages) ''
-        alias gtask 'task -d (git rev-parse --show-toplevel)'
+    alias gtask 'task -d (git rev-parse --show-toplevel)'
+  '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
+    fish_add_path ${config.home.sessionVariables.GOBIN}
   '';
 }

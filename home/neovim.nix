@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   inherit (lib) getName mkIf optional;
   inherit (config.lib.file) mkOutOfStoreSymlink;
