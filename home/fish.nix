@@ -84,10 +84,9 @@ in
     set -g fish_pager_color_completion $foreground
     set -g fish_pager_color_description $comment
 
+    set -g EDITOR nvim
   '' + optionalString (elem pkgs.go-task config.home.packages) ''
     alias gtask 'task -d (git rev-parse --show-toplevel)'
-  '' + optionalString (elem pkgs.neovim config.home.packages) ''
-    set -g EDITOR nvim
   '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
     fish_add_path ${config.home.sessionVariables.GOBIN}
   '';
