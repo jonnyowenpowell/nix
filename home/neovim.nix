@@ -42,6 +42,8 @@ in
   # Neovim
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.neovim.enable
   programs.neovim.enable = true;
+  programs.neovim.vimAlias = true;
+  programs.neovim.vimdiffAlias = true;
 
   # Minimal init.vim config to load Lua config. Nix and Home Manager don't currently support
   # `init.lua`.

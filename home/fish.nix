@@ -86,6 +86,8 @@ in
 
   '' + optionalString (elem pkgs.go-task config.home.packages) ''
     alias gtask 'task -d (git rev-parse --show-toplevel)'
+  '' + optionalString (elem pkgs.neovim config.home.packages) ''
+    set -g EDITOR nvim
   '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
     fish_add_path ${config.home.sessionVariables.GOBIN}
   '';
