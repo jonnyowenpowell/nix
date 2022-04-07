@@ -73,6 +73,7 @@ in
     "keybase"
     "microsoft-azure-storage-explorer"
     "mongodb-compass"
+    "postman"
     "secretive"
     "tor-browser"
     "transmission"
