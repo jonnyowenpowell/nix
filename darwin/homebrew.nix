@@ -79,6 +79,7 @@ in
     "transmission"
     "visual-studio-code"
     "vlc"
+    "warp"
   ];
 
   environment.variables.SSH_AUTH_SOCK = mkIfCaskPresent "secretive"
