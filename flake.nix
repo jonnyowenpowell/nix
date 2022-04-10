@@ -17,6 +17,7 @@
     # Other sources
     flake-compat = { url = github:edolstra/flake-compat; flake = false; };
     flake-utils.url = github:numtide/flake-utils;
+    rust-overlay.url = "github:oxalica/rust-overlay";
     prefmanager.url = github:malob/prefmanager;
     prefmanager.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
@@ -140,6 +141,8 @@
         };
 
         colors = import ./overlays/colors.nix;
+
+        rust-overlay = inputs.rust-overlay.overlay;
       };
 
       darwinModules = {

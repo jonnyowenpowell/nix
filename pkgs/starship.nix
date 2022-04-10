@@ -1,15 +1,23 @@
 { lib
 , stdenv
 , fetchFromGitHub
-, rustPlatform
 , pkg-config
+, pkgs
 , openssl
 , installShellFiles
 , libiconv
 , nixosTests
 , Security
 }:
+ 
+let 
+  stableRust = (pkgs.rust-bin.stable.latest);
 
+  rustPlatform = pkgs.makeRustPlatform {
+    rustc = stableRust.minimal;
+    cargo = stableRust.cargo;
+  };
+in
 rustPlatform.buildRustPackage rec {
   pname = "starship";
   version = "1.2.1";
