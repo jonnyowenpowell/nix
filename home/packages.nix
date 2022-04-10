@@ -22,6 +22,7 @@ in {
 
   # Go
   programs.go.enable = true;
+  programs.go.package = pkgs.go_1_18;
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
 
