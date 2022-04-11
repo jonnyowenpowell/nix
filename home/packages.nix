@@ -28,7 +28,7 @@ in {
 
   home.packages = with pkgs; [
     # Development
-    dotnet-sdk
+    pkgs-stable.dotnet-sdk
     netlify-cli
     nodejs
     nodePackages.yarn
