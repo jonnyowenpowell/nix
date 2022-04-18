@@ -33,6 +33,7 @@ in {
     nodejs
     nodePackages.yarn
     terraform
+    rust-bin.stable.latest.default
 
     # Neovim
     ## Language servers
