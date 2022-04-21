@@ -162,14 +162,12 @@
         jonny-git = import ./home/git.nix;
         jonny-git-aliases = import ./home/git-aliases.nix;
         jonny-gnupg-agent = import ./home/gnupg-agent.nix;
-        jonny-kitty = import ./home/kitty.nix;
         jonny-neovim = import ./home/neovim.nix;
         jonny-packages = import ./home/packages.nix;
         jonny-ssh = import ./home/ssh.nix;
         jonny-starship = import ./home/starship.nix;
         jonny-starship-symbols = import ./home/starship-symbols.nix;
 
-        programs-kitty-extras = import ./modules/home/programs/kitty/extras.nix;
         home-user-info = { lib, ... }: {
           options.home.user-info =
             (self.darwinModules.users-primaryUser { inherit lib; }).options.users.primaryUser;

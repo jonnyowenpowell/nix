@@ -1,5 +1,4 @@
 # Colors from https://github.com/rebelot/kanagawa.nvim
-# Used in Kitty terminal config: `./kitty-configs.nix`
 
 # kanagawa       hex      rgb                base16 usage
 # -------------- -------  ------------------ ------ ---------------------------------------------------------------------------------
