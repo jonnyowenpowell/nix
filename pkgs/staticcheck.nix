@@ -11,7 +11,7 @@ buildGoModule rec {
     sha256 = "sha256-GyNYNyX/hJyj6F5zCc60obai/SRCsdSczmtuvD3pzX0=";
   };
 
-  subPackages = [ "staticcheck" ];
+  subPackages = [ "cmd/staticcheck" ];
   vendorSha256 = "sha256-aOtNjWHQUN2iD26PvJEKpOCog72L9mXFXcsJiusGm20=";
 
   doCheck = false;
