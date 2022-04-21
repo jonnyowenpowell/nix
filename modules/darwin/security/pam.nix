@@ -1,4 +1,4 @@
-# Upstream PR: https://github.com/LnL7/nix-darwin/pull/228
+# From PR: https://github.com/LnL7/nix-darwin/pull/228
 { config, lib, pkgs, ... }:
 
 with lib;
