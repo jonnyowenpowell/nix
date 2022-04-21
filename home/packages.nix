@@ -1,9 +1,10 @@
 { config, lib, pkgs, ... }:
 let
-  golines = pkgs.callPackage ../pkgs/golines.nix {};
   fillstruct = pkgs.callPackage ../pkgs/fillstruct.nix {};
   fillswitch = pkgs.callPackage ../pkgs/fillswitch.nix {};
   fixplurals = pkgs.callPackage ../pkgs/fixplurals.nix {};
+  golines = pkgs.callPackage ../pkgs/golines.nix {};
+  staticcheck = pkgs.callPackage ../pkgs/staticcheck.nix {};
 in {
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat
@@ -34,18 +35,20 @@ in {
     gopls
 
     ## go.nvim
-    gofumpt
-    gomodifytags
-    gotests
-    iferr
-    impl
     delve
-    richgo
-    golines
-    gotools
     fillstruct
     fillswitch
     fixplurals
+    gofumpt
+    golines
+    gomodifytags
+    gotests
+    gotools
+    go-outline
+    iferr
+    impl
+    richgo
+    staticcheck
 
     ## nvim-treesitter
     gcc
