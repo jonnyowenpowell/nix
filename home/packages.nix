@@ -14,12 +14,6 @@ in {
     theme = "base16";
   };
 
-  # Direnv, load and unload environment variables depending on the current directory.
-  # https://direnv.net
-  # https://rycee.gitlab.io/home-manager/options.html#opt-programs.direnv.enable
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-
   # Go
   programs.go.enable = true;
   programs.go.package = pkgs.go_1_18;
