@@ -9,8 +9,6 @@
     # See docs here: https://starship.rs/config/
     # Symbols config configured ./starship-symbols.nix.
 
-    battery.display.threshold = 25; # display battery information if charge is <= 25%
-
     character.success_symbol = "[➜](bold green) ";
     character.vicmd_symbol = "[ ](bold green) ";
     character.error_symbol = "[✗](bold red) ";
