@@ -21,14 +21,19 @@ in {
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
 
+  # Python
+  programs.matplotlib.enable = true;
+
   home.packages = with pkgs; [
     # Development
     pkgs-stable.dotnet-sdk
     netlify-cli
     nodejs
     nodePackages.yarn
+    python310
     terraform
     rust-bin.stable.latest.default
+
 
     # Neovim
     ## Language servers
