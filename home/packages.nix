@@ -77,6 +77,7 @@ in {
     go-task
     jq
     mosh
+    ngrok
     procs
     ripgrep
     thefuck
