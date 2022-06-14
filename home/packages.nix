@@ -26,6 +26,7 @@ in {
 
   home.packages = with pkgs; [
     # Development
+    deno
     pkgs-stable.dotnet-sdk
     netlify-cli
     nodejs
