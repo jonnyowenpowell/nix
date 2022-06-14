@@ -81,7 +81,7 @@
         bootstrap-arm = bootstrap-x86.override { system = "aarch64-darwin"; };
 
         # My Apple Silicon macOS laptop config
-        JonnyMacbookPro = darwinSystem {
+        JonnyPowellMacBook = darwinSystem {
           system = "aarch64-darwin";
           modules = nixDarwinCommonModules ++ [
             {
