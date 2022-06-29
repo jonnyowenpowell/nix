@@ -56,7 +56,7 @@ in
 
   homebrew.brews = [
     "azure-cli"
-    "azure-functions-core-tools"
+    "azure-functions-core-tools@4"
     "mongocli"
     "mongosh"
     "mongodb-community@5.0"
