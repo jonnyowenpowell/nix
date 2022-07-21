@@ -142,7 +142,7 @@
 
         colors = import ./overlays/colors.nix;
 
-        rust-overlay = inputs.rust-overlay.overlay;
+        rust-overlay = inputs.rust-overlay.overlays.default;
       };
 
       darwinModules = {

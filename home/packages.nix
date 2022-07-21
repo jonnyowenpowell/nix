@@ -3,7 +3,6 @@ let
   fillstruct = pkgs.callPackage ../pkgs/fillstruct.nix {};
   fillswitch = pkgs.callPackage ../pkgs/fillswitch.nix {};
   fixplurals = pkgs.callPackage ../pkgs/fixplurals.nix {};
-  golines = pkgs.callPackage ../pkgs/golines.nix {};
   staticcheck = pkgs.callPackage ../pkgs/staticcheck.nix {};
 in {
   # Bat, a substitute for cat.
@@ -26,15 +25,14 @@ in {
 
   home.packages = with pkgs; [
     # Development
-    deno
+    pkgs-stable.deno
     pkgs-stable.dotnet-sdk
-    netlify-cli
+    pkgs-stable.netlify-cli
     nodejs
     nodePackages.yarn
     python310
     terraform
     rust-bin.stable.latest.default
-
 
     # Neovim
     ## Language servers
@@ -46,7 +44,6 @@ in {
     fillswitch
     fixplurals
     gofumpt
-    golines
     gomodifytags
     gotests
     gotools
@@ -73,8 +70,8 @@ in {
     exa
     fd
     gnupg
-    gopass
-    gopass-jsonapi
+    pkgs-stable.gopass
+    pkgs-stable.gopass-jsonapi
     go-task
     jq
     mosh
