@@ -62,7 +62,8 @@ vim.cmd 'packadd guihua.lua'
 vim.cmd 'packadd nvim-lspconfig'
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = 'maintained',
+  ensure_installed = 'all',
+  ignore_install = { 'phpdoc' },
   highlight = { enable = true },
   incremental_selection = { enable = true },
   indent = { enable = true },
