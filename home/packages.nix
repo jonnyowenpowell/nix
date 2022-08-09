@@ -27,7 +27,6 @@ in {
     # Development
     pkgs-stable.deno
     pkgs-stable.dotnet-sdk
-    lean
     pkgs-stable.netlify-cli
     nodejs
     nodePackages.yarn
