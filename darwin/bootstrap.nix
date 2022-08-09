@@ -23,7 +23,7 @@
     extra-platforms = x86_64-darwin aarch64-darwin
   '';
 
-  nix.useSandbox = true;
+  nix.useSandbox = false;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;

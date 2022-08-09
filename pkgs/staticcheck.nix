@@ -1,18 +1,18 @@
-{ lib, buildGoModule, fetchFromGitHub }:
+{ lib, buildGo118Module, fetchFromGitHub }:
 
-buildGoModule rec {
+buildGo118Module rec {
   pname = "staticcheck";
-  version = "0.3.0";
+  version = "0.3.3";
 
   src = fetchFromGitHub {
     owner = "dominikh";
     repo = "go-tools";
     rev = "v${version}";
-    sha256 = "sha256-GyNYNyX/hJyj6F5zCc60obai/SRCsdSczmtuvD3pzX0=";
+    sha256 = "sha256-Yli+8gMoRRyNqOgFRv/uyFBVXdIlDH0tfZzvfTYBPyU=";
   };
 
   subPackages = [ "cmd/staticcheck" ];
-  vendorSha256 = "sha256-aOtNjWHQUN2iD26PvJEKpOCog72L9mXFXcsJiusGm20=";
+  vendorSha256 = "sha256-19uLCtKuuZoVwC4SUKvYGWi2ryqAQbcKXY1iNjIqyn8=";
 
   doCheck = false;
 }
