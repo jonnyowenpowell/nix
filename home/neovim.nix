@@ -12,7 +12,7 @@ in
   programs.neovim.vimdiffAlias = true;
 
   xdg.configFile."nvim/lua/user".source = mkOutOfStoreSymlink "${nixConfigDirectory}/config/nvim";
-  xdg.configFile."nvim/lua" = {
+  xdg.configFile.nvim = {
     source = pkgs.fetchFromGitHub {
       owner = "AstroNvim";
       repo = "AstroNvim";
@@ -21,5 +21,5 @@ in
     };
     recursive = true;
   };
-  programs.neovim.extraConfig = "lua require('init')";
+  programs.neovim.extraConfig = "";
 }
