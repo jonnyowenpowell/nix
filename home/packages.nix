@@ -70,6 +70,7 @@ in {
     exa
     fd
     gnupg
+    gore
     pkgs-stable.gopass
     pkgs-stable.gopass-jsonapi
     go-task
