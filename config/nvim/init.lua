@@ -42,7 +42,8 @@ local config = {
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
       local null_ls = require "null-ls"
       config.sources = {
-        null_ls.builtins.formatting.gofumpt 
+        null_ls.builtins.formatting.gofumpt,
+        null_ls.builtins.formatting.goimports,
       }
       -- set up null-ls's on_attach function to format on save
       config.on_attach = function(client)
