@@ -31,7 +31,6 @@ in
   homebrew.global.noLock = true;
 
   homebrew.taps = [
-    "azure/functions"
     "homebrew/cask"
     "homebrew/cask-drivers"
     "homebrew/cask-fonts"
@@ -43,24 +42,11 @@ in
   ];
 
   # Prefer installing application from the Mac App Store
-  #
-  # Commented apps suffer continual update issue:
-  # https://github.com/malob/nixpkgs/issues/9
   homebrew.masApps = {
     Keynote = 409183694;
     Numbers = 409203825;
     Pages = 409201541;
-    Xcode = 497799835;
   };
-
-  homebrew.brews = [
-    "azure-cli"
-    "azure-functions-core-tools@4"
-    "mongocli"
-    "mongosh"
-    "mongodb-community@5.0"
-    "mongodb-database-tools"
-  ];
 
   # If an app isn't available in the Mac App Store, or the version in the App Store has
   # limitiations, e.g., Transmit, install the Homebrew Cask.
@@ -69,12 +55,7 @@ in
     "docker"
     "google-chrome"
     "gpg-suite"
-    "keybase"
-    "microsoft-azure-storage-explorer"
-    "mongodb-compass"
-    "postman"
     "secretive"
-    "tor-browser"
     "transmission"
     "visual-studio-code"
     "vlc"
