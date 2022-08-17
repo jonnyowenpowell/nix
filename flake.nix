@@ -134,12 +134,6 @@
           };
         };
 
-        # Overlay to include node packages listed in `./pkgs/node-packages/package.json`
-        # Run `nix run my#nodePackages.node2nix -- -14` to update packages.
-        nodePackages = final: prev: {
-          nodePackages = prev.nodePackages // import ./pkgs/node-packages { pkgs = prev; };
-        };
-
         colors = import ./overlays/colors.nix;
 
         rust-overlay = inputs.rust-overlay.overlays.default;
@@ -184,7 +178,6 @@
           pkgs-master
           pkgs-stable
           apple-silicon
-          nodePackages
         ];
       };
     });

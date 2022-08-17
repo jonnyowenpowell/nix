@@ -60,7 +60,6 @@ in {
     # Nix
     comma
     niv
-    nodePackages.node2nix
 
     # Utilities
     cloc
