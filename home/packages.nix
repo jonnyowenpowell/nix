@@ -20,13 +20,9 @@ in {
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
 
-  # Python
-  programs.matplotlib.enable = true;
-
   home.packages = with pkgs; [
     # Development
     pkgs-stable.deno
-    pkgs-stable.dotnet-sdk
     nodejs
     nodePackages.yarn
     python310
@@ -63,12 +59,10 @@ in {
     # Utilities
     cloc
     coreutils
-    docker
     du-dust
     exa
     fd
     gnupg
-    gore
     pkgs-stable.gopass
     pkgs-stable.gopass-jsonapi
     go-task
@@ -77,13 +71,11 @@ in {
     ngrok
     procs
     ripgrep
-    thefuck
     unrar
     wget
     xz
   ] ++ lib.optionals stdenv.isDarwin [
     cocoapods
-    m-cli # useful macOS CLI commands
-    # prefmanager # tool for working with macOS defaults
+    m-cli
   ];
 }

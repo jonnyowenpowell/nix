@@ -52,14 +52,8 @@ in
   # limitiations, e.g., Transmit, install the Homebrew Cask.
   homebrew.casks = [
     "amethyst"
-    "docker"
-    "google-chrome"
     "gpg-suite"
     "secretive"
-    "transmission"
-    "visual-studio-code"
-    "vlc"
-    "warp"
   ];
 
   environment.variables.SSH_AUTH_SOCK = mkIfCaskPresent "secretive"

@@ -18,8 +18,6 @@
     flake-compat = { url = github:edolstra/flake-compat; flake = false; };
     flake-utils.url = github:numtide/flake-utils;
     rust-overlay.url = "github:oxalica/rust-overlay";
-    prefmanager.url = github:malob/prefmanager;
-    prefmanager.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs = { self, darwin, home-manager, flake-utils, ... }@inputs:
@@ -138,7 +136,6 @@
 
       darwinModules = {
         jonny-bootstrap = import ./darwin/bootstrap.nix;
-        jonny-defaults = import ./darwin/defaults.nix;
         jonny-general = import ./darwin/general.nix;
         jonny-homebrew = import ./darwin/homebrew.nix;
 
@@ -148,7 +145,6 @@
       };
 
       homeManagerModules = {
-        jonny-environment = import ./home/environment.nix;
         jonny-fish = import ./home/fish.nix;
         jonny-git = import ./home/git.nix;
         jonny-git-aliases = import ./home/git-aliases.nix;
