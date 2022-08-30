@@ -62,6 +62,10 @@ local config = {
     packer = {
       compile_path = vim.fn.stdpath "data" .. "/packer_compiled.lua",
     },
+    treesitter = {
+      ensure_installed = "all",
+      ignore_install = { "phpdoc" },
+    },
   },
 
   -- LuaSnip Options
@@ -144,9 +148,6 @@ local config = {
       --     },
       --   },
       -- },
-    },
-    treesitter = {
-      ensure_installed = "all",
     },
   },
 
