@@ -41,11 +41,7 @@ in
     "nrlquaker/createzap"
   ];
 
-  # Prefer installing application from the Mac App Store
   homebrew.masApps = {
-    Keynote = 409183694;
-    Numbers = 409203825;
-    Pages = 409201541;
   };
 
   # If an app isn't available in the Mac App Store, or the version in the App Store has
