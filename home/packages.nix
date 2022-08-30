@@ -57,6 +57,7 @@ in {
     niv
 
     # Utilities
+    alacritty
     cloc
     coreutils
     du-dust
