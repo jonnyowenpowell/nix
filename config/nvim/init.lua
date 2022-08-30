@@ -145,6 +145,9 @@ local config = {
       --   },
       -- },
     },
+    treesitter = {
+      ensure_installed = "all",
+    },
   },
 
   -- Diagnostics configuration (for vim.diagnostics.config({}))
