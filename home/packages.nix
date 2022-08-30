@@ -5,6 +5,12 @@ let
   fixplurals = pkgs.callPackage ../pkgs/fixplurals.nix {};
   staticcheck = pkgs.callPackage ../pkgs/staticcheck.nix {};
 in {
+  # Alacritty
+  programs.alacritty.enable = true;
+  programs.alacritty.settings = {
+    shell.program = "${pkgs.fish}/bin/fish";
+  };
+
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.bat.enable
@@ -57,7 +63,6 @@ in {
     niv
 
     # Utilities
-    alacritty
     cloc
     coreutils
     du-dust
