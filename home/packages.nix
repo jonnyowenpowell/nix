@@ -9,6 +9,7 @@ in {
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     shell.program = "${pkgs.fish}/bin/fish";
+    font.normal.family = "JetBrainsMono Nerd Font";
   };
 
   # Bat, a substitute for cat.
