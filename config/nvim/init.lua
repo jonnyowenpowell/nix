@@ -33,6 +33,7 @@ local config = {
           vim.g.catppuccin_flavour = "latte"
         end
       },
+      { "fatih/vim-go" },
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
     },
