@@ -93,7 +93,7 @@ in
   '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
     fish_add_path ${config.home.sessionVariables.GOBIN}
 
-    set -g GITHUB_PRIVATE_TOKEN "$(security find-generic-password -a "$USER" -s "GitHub Token" -w)"
-    set -g NPM_TOKEN "$(security find-generic-password -a "$USER" -s "NPM Token" -w)"
+    set -gx GITHUB_PRIVATE_TOKEN "$(security find-generic-password -a "$USER" -s "GitHub Token" -w)"
+    set -gx NPM_TOKEN "$(security find-generic-password -a "$USER" -s "NPM Token" -w)"
   '';
 }
