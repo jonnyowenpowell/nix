@@ -22,6 +22,9 @@
     commit.gpgsign = true;
     tag.forcesignannotated = true;
     user.signingkey = "E1F65143FF8083FE";
+
+    # GitHub
+    url."ssh://git@github.com/".insteadOf = "https://github.com/";
   };
 
   programs.git.ignores = [
