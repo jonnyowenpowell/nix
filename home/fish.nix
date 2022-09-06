@@ -89,5 +89,7 @@ in
     alias gtask 'task -d (git rev-parse --show-toplevel)'
   '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
     fish_add_path ${config.home.sessionVariables.GOBIN}
+
+    set -g GITHUB_PRIVATE_TOKEN "$(security find-generic-password -a "$USER" -s "GitHub Token" -w)"
   '';
 }
