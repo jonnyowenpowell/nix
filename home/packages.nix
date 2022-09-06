@@ -33,6 +33,7 @@ in {
     pkgs-stable.deno
     nodejs
     nodePackages.yarn
+    pkgs-stable.pgcli
     python310
     terraform
     rust-bin.stable.latest.default
