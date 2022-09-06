@@ -48,6 +48,7 @@ in
   # limitiations, e.g., Transmit, install the Homebrew Cask.
   homebrew.casks = [
     "amethyst"
+    "google-cloud-sdk"
     "gpg-suite"
     "secretive"
   ];
