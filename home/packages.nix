@@ -64,6 +64,10 @@ in {
     comma
     niv
 
+    # k8s
+    kubernetes-helm
+    tilt
+
     # Utilities
     cloc
     coreutils
