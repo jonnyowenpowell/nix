@@ -37,8 +37,9 @@ in {
 
   home.packages = with pkgs; [
     # Development
+    cmake
     pkgs-stable.deno
-    nodejs
+    nodejs-18_x
     nodePackages.yarn
     pkgs-stable.pgcli
     python310
