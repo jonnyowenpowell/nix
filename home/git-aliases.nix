@@ -10,6 +10,9 @@
     mm = "merge main";
     s = "status";
 
+    # Clone commands
+    fgh = "!f() { git clone \"git@github.com:$1.git\"; }; f";
+
     # Checkout commands
     co = "checkout";
     cob = "checkout -b";
@@ -28,6 +31,10 @@
     p = "push";
     pl = "pull";
     pn = "!f() { local branch; branch=$(git branch --show-current); git push -u origin \"$branch\"; }; f";
+
+    
+    # Stash commands
+    sm = "stash -m";
 
     # Rebase commands
     rb = "rebase";

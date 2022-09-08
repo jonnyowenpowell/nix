@@ -11,6 +11,13 @@ in {
     shell.program = "${pkgs.fish}/bin/fish";
     font.normal.family = "JetBrainsMono Nerd Font";
     font.size = 15.0;
+    key_bindings = [
+      {
+        key = "Key3";
+        mods = "Alt";
+        chars = "#";
+      }
+    ];
   };
 
   # Bat, a substitute for cat.
