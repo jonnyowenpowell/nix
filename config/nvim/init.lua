@@ -60,6 +60,7 @@ local config = {
           vim.fn['fzf#install']()
         end
       },
+      { "dylanaraps/root.vim" },
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
     },
