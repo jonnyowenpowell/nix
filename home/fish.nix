@@ -38,6 +38,8 @@ in
     ls = "${exa}/bin/exa";
     ps = "${procs}/bin/procs";
     tb = "toggle-background";
+    dcu = "docker compose up -d";
+    yaegi = "rlwrap yaegi";
   };
 
   # Configuration that should be above `loginShellInit` and `interactiveShellInit`.

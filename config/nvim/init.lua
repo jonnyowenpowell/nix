@@ -33,7 +33,33 @@ local config = {
           vim.g.catppuccin_flavour = "latte"
         end
       },
-      { "fatih/vim-go" },
+      {
+        "fatih/vim-go",
+        config = function()
+          vim.g.go_doc_balloon = 1
+          vim.g.go_def_mapping_enabled = 0
+          vim.g.go_updatetime = 200
+          vim.g.go_test_show_name = 1
+          vim.g.go_metalinter_autosave = 0
+          vim.g.go_mod_fmt_autosave = 0
+          vim.g.go_asmfmt_autosave = 0
+          vim.g.go_fmt_autosave = 0
+          vim.g.go_imports_autosave = 0
+          vim.g.go_auto_sameids = 1
+          vim.g.go_test_timeout = "20s"
+          vim.g.go_term_enabled = 1
+          vim.g.go_term_mode = "vsplit"
+          vim.g.go_term_reuse = 1
+          vim.g.go_gorename_prefill = ""
+        end
+      },
+      { "junegunn/fzf" },
+      {
+        "junegunn/fzf.vim",
+        run = function()
+          vim.fn['fzf#install']()
+        end
+      },
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
     },
@@ -89,6 +115,57 @@ local config = {
         ["<leader>"] = {
           -- which-key registration table for normal mode, leader prefix
           -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+          ["i"] = {
+            name = "vim-go",
+            -- Compiler commands
+            ["B"] = { "<cmd>GoBuild<cr>", "GoBuild" },
+            ["G"] = { "<cmd>GoGenerate<cr>", "GoGenerate" },
+            ["R"] = { "<cmd>GoRun<cr>", "GoRun" },
+            -- Testing commands
+            ["A"] = { "<cmd>GoAlternate<cr>", "GoAlternate" },
+            ["C"] = { "<cmd>GoCoverageToggle<cr>", "Toggle GoCoverage" },
+            ["F"] = { "<cmd>GoTestFunc<cr>", "GoTestFunc" },
+            ["T"] = { "<cmd>GoTest<cr>", "GoTest" },
+            -- Tooling commands
+            ["L"] = { "<cmd>GoMetaLinter<cr>", "GoMetaLinter" },
+            ["g"] = {
+              name = "Guru",
+              ["s"] = { "<cmd>GoGuruScope \"\"<cr>", "Reset GoGuruScope" },
+              ["S"] = { "<cmd>GoGuruScope ...<cr>", "Workspace GoGuruScope" },
+            },
+            -- Analysis commands
+            ["c"] = { "<cmd>GoCallstack<cr>", "GoCallstack" },
+            ["D"] = { "<cmd>GoDescribe<cr>", "GoDescribe" },
+            ["h"] = { "<cmd>GoDoc<cr>", "GoDoc" },
+            ["H"] = { "<cmd>GoDocBrowser<cr>", "GoDocBrowser" },
+            ["i"] = { "<cmd>GoInfo<cr>", "GoInfo" },
+            ["j"] = { "<cmd>GoImplements<cr>", "GoImplements" },
+            ["P"] = { "<cmd>GoPointsTo<cr>", "GoPointsTo" },
+            ["u"] = { "<cmd>GoReferrers<cr>", "GoReferrers" },
+            ["w"] = { "<cmd>GoWhicherrs<cr>", "GoWhicherrs" },
+            ["x"] = { "<cmd>GoCallers<cr>", "GoCallers" },
+            ["X"] = { "<cmd>GoCallees<cr>", "GoCallees" },
+            ["y"] = { "<cmd>GoChannelPeers<cr>", "GoChannelPeers" },
+            -- Movement commands
+            ["d"] = { "<cmd>GoDef<cr>", "GoDef"},
+            ["p"] = { "<cmd>GoDefPop<cr>", "GoDefPop"},
+            ["s"] = { "<cmd>GoDefStack<cr>", "GoDefStack"},
+            -- Code commands
+            ["e"] = { "<cmd>GoIfErr<cr>", "GoIfErr" },
+            ["f"] = { "<cmd>GoFillStruct<cr>", "GoFillStruct" },
+            ["I"] = { "<cmd>GoImpl<cr>", "GoImpl" },
+            ["k"] = { "<cmd>GoKeyify<cr>", "GoKeyify" },
+            ["r"] = { "<cmd>GoRename<cr>", "GoRename" },
+          },
+        },
+      },
+      v = {
+        ["<leader>"] = {
+          ["i"] = {
+            name = "vim-go",
+            -- Analysis commands
+            ["f"] = { "<cmd>'<,'>GoFreevars<cr>", "GoFreevars" },
+          },
         },
       },
     },
@@ -200,8 +277,8 @@ local config = {
 
 -- addtional repls
 config.mappings.n["<leader>tr"] = {
-  function() astronvim.toggle_term_cmd "gore" end,
-  desc = "ToggleTerm gore"
+  function() astronvim.toggle_term_cmd "rlwrap yaegi" end,
+  desc = "ToggleTerm Go "
 }
 
 return config

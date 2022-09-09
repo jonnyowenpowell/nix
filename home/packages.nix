@@ -31,7 +31,7 @@ in {
 
   # Go
   programs.go.enable = true;
-  programs.go.package = pkgs.go_1_18;
+  programs.go.package = pkgs.go_1_19;
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
 
@@ -43,6 +43,7 @@ in {
     nodePackages.yarn
     pkgs-stable.pgcli
     python310
+    rlwrap
     terraform
     rust-bin.stable.latest.default
 
