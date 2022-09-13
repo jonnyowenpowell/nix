@@ -8,7 +8,8 @@
     bd = "branch -D";
     ignored = "!git ls-files -v | grep \"^[[:lower:]]\"";
     mm = "merge main";
-    s = "status";
+    x = "status";
+    u = "checkout HEAD --";
 
     # Clone commands
     fgh = "!f() { git clone \"git@github.com:$1.git\"; }; f";
@@ -34,7 +35,9 @@
 
     
     # Stash commands
+    sl = "stash list";
     sm = "stash -m";
+    sp = "stash pop";
 
     # Rebase commands
     rb = "rebase";
