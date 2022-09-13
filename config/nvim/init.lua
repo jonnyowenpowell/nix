@@ -51,6 +51,7 @@ local config = {
           vim.g.go_term_mode = "vsplit"
           vim.g.go_term_reuse = 1
           vim.g.go_gorename_prefill = ""
+          vim.g.go_term_close_on_exit = 0
         end
       },
       { "junegunn/fzf" },
@@ -60,7 +61,13 @@ local config = {
           vim.fn['fzf#install']()
         end
       },
-      { "dylanaraps/root.vim" },
+      {
+        "dylanaraps/root.vim",
+        config = function()
+          vim.g["root#auto"] = 1
+          vim.g["root#echo"] = 0
+        end
+      },
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
     },
