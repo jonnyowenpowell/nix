@@ -24,9 +24,6 @@ in
     nr = "nix run";
     ns = "nix search";
 
-    # Python
-    pip = "pip3";
-
     # Other
     ".." = "cd ..";
     ":q" = "exit";

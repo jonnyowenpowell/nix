@@ -43,6 +43,7 @@ in {
     nodePackages.yarn
     pkgs-stable.pgcli
     python310
+    python310Packages.pip
     rlwrap
     terraform
     rust-bin.stable.latest.default
