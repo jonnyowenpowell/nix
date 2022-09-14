@@ -20,6 +20,7 @@
 
     # Signing
     commit.gpgsign = true;
+    gpg.program = "${config.home.profileDirectory}/bin/gpg";
     tag.forcesignannotated = true;
     user.signingkey = "E1F65143FF8083FE";
 
