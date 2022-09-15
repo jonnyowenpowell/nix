@@ -30,6 +30,7 @@ in
     cat = "${bat}/bin/bat";
     du = "${du-dust}/bin/dust";
     g = "${gitAndTools.git}/bin/git";
+    gtask = "task -d (git rev-parse --show-toplevel)";
     la = "ll -a";
     ll = "ls -l --time-style long-iso --icons";
     ls = "${exa}/bin/exa";
@@ -87,12 +88,12 @@ in
     set -g fish_pager_color_description $comment
 
     set -g EDITOR "${pkgs.neovim}/bin/nvim"
-  '' + optionalString (elem pkgs.go-task config.home.packages) ''
-    alias gtask 'task -d (git rev-parse --show-toplevel)'
   '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
     fish_add_path ${config.home.sessionVariables.GOBIN}
 
     set -gx GITHUB_PRIVATE_TOKEN "$(security find-generic-password -a "$USER" -s "GitHub Token" -w)"
     set -gx NPM_TOKEN "$(security find-generic-password -a "$USER" -s "NPM Token" -w)"
+
+    fnm env --use-on-cd | source
   '';
 }
