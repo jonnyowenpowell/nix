@@ -24,8 +24,8 @@
     tag.forcesignannotated = true;
     user.signingkey = "E1F65143FF8083FE";
 
-    # GitHub
-    url."ssh://git@github.com/".insteadOf = "https://github.com/";
+    # Snyk
+    url."git@github.com:snyk".insteadOf = "https://github.com/snyk";
   };
 
   programs.git.ignores = [
