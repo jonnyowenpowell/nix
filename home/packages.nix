@@ -39,8 +39,7 @@ in {
     # Development
     cmake
     pkgs-stable.deno
-    nodejs-18_x
-    nodePackages.yarn
+    fnm
     pkgs-stable.pgcli
     python310
     python310Packages.pip
