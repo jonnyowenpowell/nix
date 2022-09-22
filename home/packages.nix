@@ -9,7 +9,7 @@ in {
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     shell.program = "${pkgs.fish}/bin/fish";
-    font.normal.family = "JetBrainsMono Nerd Font";
+    font.normal.family = "GoMono Nerd Font";
     font.size = 15.0;
     key_bindings = [
       {
