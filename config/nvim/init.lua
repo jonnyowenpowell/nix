@@ -61,6 +61,7 @@ local config = {
           vim.fn['fzf#install']()
         end
       },
+      { "towolf/vim-helm" },
       {
         "dylanaraps/root.vim",
         config = function()
