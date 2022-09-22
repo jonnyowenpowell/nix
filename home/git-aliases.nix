@@ -10,6 +10,7 @@
     mm = "merge main";
     x = "status";
     u = "checkout HEAD --";
+    us = "restore --staged --";
 
     # Clone commands
     fgh = "!f() { git clone \"git@github.com:$1.git\"; }; f";
