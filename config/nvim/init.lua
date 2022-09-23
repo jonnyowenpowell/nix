@@ -290,4 +290,11 @@ config.mappings.n["<leader>tr"] = {
   desc = "ToggleTerm Go "
 }
 
+-- additional filetypes
+vim.filetype.add({
+  filename = {
+    ["Tiltfile"] = "python",
+  },
+})
+
 return config
