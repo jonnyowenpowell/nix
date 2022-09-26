@@ -124,6 +124,7 @@ local config = {
         ["<leader>"] = {
           -- which-key registration table for normal mode, leader prefix
           -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+          ["R"] = { "<cmd>w !fish<cr>", "Run" },
           ["i"] = {
             name = "vim-go",
             -- Compiler commands
