@@ -3,16 +3,16 @@
 {
   # Nix configuration ------------------------------------------------------------------------------
 
-  nix.binaryCaches = [
+  nix.settings.substituters = [
     "https://cache.nixos.org/"
   ];
-  nix.binaryCachePublicKeys = [
+  nix.settings.trusted-public-keys = [
     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
   ];
-  nix.trustedUsers = [
+  nix.settings.trusted-users = [
     "@admin"
   ];
-  users.nix.configureBuildUsers = true;
+  nix.configureBuildUsers = true;
 
   # Enable experimental nix command and flakes
   # nix.package = pkgs.nixUnstable;
@@ -23,7 +23,7 @@
     extra-platforms = x86_64-darwin aarch64-darwin
   '';
 
-  nix.useSandbox = false;
+  nix.settings.sandbox = false;
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
