@@ -39,6 +39,7 @@
     sl = "stash list";
     sm = "stash -m";
     sp = "stash pop";
+    sd = "stash drop";
 
     # Rebase commands
     rb = "rebase";
