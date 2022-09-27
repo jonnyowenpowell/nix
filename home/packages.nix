@@ -40,6 +40,7 @@ in {
     cmake
     pkgs-stable.deno
     fnm
+    lazygit
     pkgs-stable.pgcli
     python310
     python310Packages.pip
