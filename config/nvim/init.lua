@@ -124,7 +124,6 @@ local config = {
         ["<leader>"] = {
           -- which-key registration table for normal mode, leader prefix
           -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
-          ["R"] = { "<cmd>w !fish<cr>", "Run" },
           ["i"] = {
             name = "vim-go",
             -- Compiler commands
@@ -167,10 +166,13 @@ local config = {
             ["k"] = { "<cmd>GoKeyify<cr>", "GoKeyify" },
             ["r"] = { "<cmd>GoRename<cr>", "GoRename" },
           },
+          ["r"] = { "<cmd>w !fish<cr>", "Run" },
+          ["tr"] = { function() astronvim.toggle_term_cmd "rlwrap yaegi" end, "Go (yaegi)" },
         },
       },
       v = {
         ["<leader>"] = {
+          ["r"] = { "<cmd>'<,'>ToggleTermSendVisualLines<cr>", "Run in ToggleTerm" },
           ["i"] = {
             name = "vim-go",
             -- Analysis commands
@@ -283,12 +285,6 @@ local config = {
     --   },
     -- }
   end,
-}
-
--- addtional repls
-config.mappings.n["<leader>tr"] = {
-  function() astronvim.toggle_term_cmd "rlwrap yaegi" end,
-  desc = "ToggleTerm Go "
 }
 
 -- additional filetypes
