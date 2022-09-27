@@ -41,6 +41,7 @@ in {
     pkgs-stable.deno
     fnm
     lazygit
+    postgresql
     pkgs-stable.pgcli
     python310
     python310Packages.pip
