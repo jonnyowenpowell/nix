@@ -40,6 +40,7 @@ in {
     cmake
     pkgs-stable.deno
     fnm
+    k9s
     lazygit
     postgresql
     pkgs-stable.pgcli
