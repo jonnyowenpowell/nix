@@ -133,8 +133,8 @@ local config = {
             -- Testing commands
             ["A"] = { "<cmd>GoAlternate<cr>", "GoAlternate" },
             ["C"] = { "<cmd>GoCoverageToggle<cr>", "Toggle GoCoverage" },
-            ["F"] = { "<cmd>GoTestFunc ./...<cr>", "GoTestFunc" },
-            ["T"] = { "<cmd>GoTest ./...<cr>", "GoTest" },
+            ["F"] = { "<cmd>GoTestFunc %:p:h<cr>", "GoTestFunc" },
+            ["T"] = { "<cmd>GoTest %:p:h<cr>", "GoTest" },
             -- Tooling commands
             ["L"] = { "<cmd>GoMetaLinter<cr>", "GoMetaLinter" },
             ["g"] = {
