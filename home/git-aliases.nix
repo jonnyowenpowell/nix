@@ -31,6 +31,7 @@
 
     # Push/pull commands
     p = "push";
+    pf = "push --force";
     pl = "pull";
     pn = "!f() { local branch; branch=$(git branch --show-current); git push -u origin \"$branch\"; }; f";
 
