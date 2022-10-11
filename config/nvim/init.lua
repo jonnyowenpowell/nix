@@ -289,6 +289,9 @@ local config = {
 
 -- additional filetypes
 vim.filetype.add({
+  extension = {
+    ["tilt"] = "python",
+  },
   filename = {
     ["Tiltfile"] = "python",
   },
