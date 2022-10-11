@@ -37,6 +37,7 @@ in {
 
   home.packages = with pkgs; [
     # Development
+    awscli
     cmake
     pkgs-stable.deno
     fnm
