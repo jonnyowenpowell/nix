@@ -38,7 +38,7 @@
     
     # Stash commands
     sl = "stash list";
-    sm = "stash -m";
+    sm = "stash --staged -m";
     sp = "stash pop";
     sd = "stash drop";
 
