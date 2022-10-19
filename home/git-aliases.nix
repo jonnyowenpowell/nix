@@ -8,9 +8,9 @@
     bd = "branch -D";
     ignored = "!git ls-files -v | grep \"^[[:lower:]]\"";
     mm = "merge main";
-    x = "status";
     u = "checkout HEAD --";
     us = "restore --staged --";
+    x = "status";
 
     # Clone commands
     fgh = "!f() { git clone \"git@github.com:$1.git\"; }; f";
@@ -29,18 +29,20 @@
     fm = "fetch origin main:main";
     fp = "fetch --prune";
 
-    # Push/pull commands
+    # Push commands
     p = "push";
     pf = "push --force";
-    pl = "pull";
     pn = "!f() { local branch; branch=$(git branch --show-current); git push -u origin \"$branch\"; }; f";
 
-    
+    # Pull commands
+    pl = "pull";
+
     # Stash commands
+    sa = "stash apply";
+    sd = "stash drop";
     sl = "stash list";
     sm = "stash --staged -m";
     sp = "stash pop";
-    sd = "stash drop";
 
     # Rebase commands
     rb = "rebase";
