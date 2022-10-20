@@ -43,6 +43,7 @@
     sl = "stash list";
     sm = "stash --staged -m";
     sp = "stash pop";
+    sv = "stash show -p";
 
     # Rebase commands
     rb = "rebase";
