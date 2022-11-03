@@ -81,18 +81,7 @@ local config = {
         null_ls.builtins.formatting.gofumpt,
         null_ls.builtins.formatting.goimports,
       }
-      -- set up null-ls's on_attach function to format on save
-      config.on_attach = function(client)
-        if client.resolved_capabilities.document_formatting then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            desc = "Auto format before save",
-            pattern = "<buffer>",
-            callback = function()
-              vim.lsp.buf.formatting_sync { async = true }
-            end,
-          })
-        end
-      end
+
       return config -- return final config table
     end,
     packer = {
@@ -117,7 +106,7 @@ local config = {
   -- Modify which-key registration
   ["which-key"] = {
     -- Add bindings
-    register_mappings = {
+    register = {
       -- first key is the mode, n == normal mode
       n = {
         -- second key is the prefix, <leader> prefixes
@@ -156,9 +145,9 @@ local config = {
             ["X"] = { "<cmd>GoCallees<cr>", "GoCallees" },
             ["y"] = { "<cmd>GoChannelPeers<cr>", "GoChannelPeers" },
             -- Movement commands
-            ["d"] = { "<cmd>GoDef<cr>", "GoDef"},
-            ["p"] = { "<cmd>GoDefPop<cr>", "GoDefPop"},
-            ["s"] = { "<cmd>GoDefStack<cr>", "GoDefStack"},
+            ["d"] = { "<cmd>GoDef<cr>", "GoDef" },
+            ["p"] = { "<cmd>GoDefPop<cr>", "GoDefPop" },
+            ["s"] = { "<cmd>GoDefStack<cr>", "GoDefStack" },
             -- Code commands
             ["e"] = { "<cmd>GoIfErr<cr>", "GoIfErr" },
             ["f"] = { "<cmd>GoFillStruct<cr>", "GoFillStruct" },
@@ -221,11 +210,6 @@ local config = {
 
     -- Add overrides for LSP server settings, the keys are the name of the server
     ["server-settings"] = {
-      gopls = {
-         on_attach = function(client, _)
-           client.resolved_capabilities.document_formatting = false
-         end
-       }
       -- example for addings schemas to yamlls
       -- yamlls = {
       --   settings = {
@@ -247,18 +231,6 @@ local config = {
     underline = true,
   },
 
-  mappings = {
-    -- first key is the mode
-    n = {
-      -- second key is the lefthand side of the map
-      ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
-    },
-    t = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
-    },
-  },
-
   -- This function is run last
   -- good place to configuring augroups/autocommands and custom filetypes
   polish = function()
@@ -272,29 +244,15 @@ local config = {
       command = "source <afile> | PackerSync",
     })
 
-    -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
+    vim.filetype.add({
+      extension = {
+        ["tilt"] = "python",
+      },
+      filename = {
+        ["Tiltfile"] = "python",
+      },
+    })
   end,
 }
-
--- additional filetypes
-vim.filetype.add({
-  extension = {
-    ["tilt"] = "python",
-  },
-  filename = {
-    ["Tiltfile"] = "python",
-  },
-})
 
 return config
