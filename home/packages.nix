@@ -49,6 +49,7 @@ in {
     python310
     python310Packages.pip
     rlwrap
+    teleport
     terraform
     rust-bin.stable.latest.default
 
