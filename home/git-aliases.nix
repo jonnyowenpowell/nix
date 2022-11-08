@@ -8,7 +8,7 @@
     bd = "branch -D";
     ignored = "!git ls-files -v | grep \"^[[:lower:]]\"";
     mm = "merge main";
-    u = "checkout HEAD --";
+    u = "restore --";
     us = "restore --staged --";
     x = "status";
 
