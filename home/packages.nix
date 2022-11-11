@@ -41,6 +41,7 @@ in {
     cmake
     pkgs-stable.deno
     fnm
+    helix
     gh
     k9s
     lazygit
