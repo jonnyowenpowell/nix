@@ -1,0 +1,33 @@
+theme = "ayu_dark"
+
+[editor]
+mouse       = false
+scrolloff   = 5
+line-number = "relative"
+gutters     = ["diagnostics", "line-numbers"]
+
+shell = ["fish", "-c"]
+
+auto-completion = true
+auto-format     = true
+auto-info       = true
+
+[editor.statusline]
+left   = ["spinner", "diagnostics"]
+center = ["file-name"]
+right  = ["spinner", "file-type", "position"]
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "block"
+
+[editor.file-picker]
+hidden      = false
+ignore      = true
+git-ignore  = false
+git-global  = false
+git-exclude = false
+
+[editor.search]
+wrap-around = false
