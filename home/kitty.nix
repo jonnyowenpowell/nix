@@ -26,6 +26,6 @@
   };
 
   programs.kitty.extraConfig = ''
-    macos_option_as_alt both
+    macos_option_as_alt left
   '';
 }
