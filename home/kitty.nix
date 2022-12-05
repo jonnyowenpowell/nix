@@ -7,6 +7,8 @@
   programs.kitty.enable = true;
 
   programs.kitty.settings = {
+    shell = "${pkgs.fish}/bin/fish";
+
     font_family = "GoMono Nerd Font";
     font_size = "14.0";
     adjust_line_height = "140%";
