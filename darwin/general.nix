@@ -11,7 +11,7 @@
   # `home-manager` currently has issues adding them to `~/Applications`
   # Issue: https://github.com/nix-community/home-manager/issues/1341
   environment.systemPackages = with pkgs; [
-    alacritty
+    kitty
     terminal-notifier
   ];
   programs.nix-index.enable = true;
@@ -20,7 +20,7 @@
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
      recursive
-     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+     (nerdfonts.override { fonts = [ "Go-Mono" ]; })
    ];
 
   # Keyboard
