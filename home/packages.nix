@@ -1,8 +1,4 @@
 { config, lib, pkgs, ... }:
-let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
-  inherit (config.home.user-info) nixConfigDirectory;
-in
 {
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat
@@ -18,9 +14,6 @@ in
   programs.go.package = pkgs.go_1_19;
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
-
-  # Helix: https://github.com/helix-editor/helix
-  xdg.configFile."helix/config.toml".source = mkOutOfStoreSymlink "${nixConfigDirectory}/config/helix/config.toml";
 
   home.packages = with pkgs; [
     # Cloud
@@ -42,9 +35,6 @@ in
     # Databases
     pkgs-stable.pgcli
     postgresql
-
-    # Editor
-    helix
 
     # Kubernetes
     k9s
