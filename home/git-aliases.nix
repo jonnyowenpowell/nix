@@ -31,7 +31,8 @@
 
     # Push commands
     p = "push";
-    pf = "push --force";
+    pf = "push --force-with-lease";
+    pff = "push --force";
     pn = "!f() { local branch; branch=$(git branch --show-current); git push -u origin \"$branch\"; }; f";
 
     # Pull commands
