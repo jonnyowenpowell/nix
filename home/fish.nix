@@ -87,7 +87,7 @@ in
     set -g fish_pager_color_completion $foreground
     set -g fish_pager_color_description $comment
 
-    set -g EDITOR "${pkgs.neovim}/bin/nvim"
+    set -g EDITOR "${pkgs.helix}/bin/hx"
   '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
     fish_add_path ${config.home.sessionVariables.GOBIN}
 

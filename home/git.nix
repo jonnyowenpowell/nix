@@ -14,7 +14,7 @@
     init.defaultbranch = "main";
 
     # Helpers
-    core.editor = "${pkgs.neovim}/bin/nvim";
+    core.editor = "${pkgs.helix}/bin/hx";
     diff.colorMoved = "default";
     merge.conflictstyle = "diff3";
 
