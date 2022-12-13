@@ -129,8 +129,6 @@
           };
         };
 
-        colors = import ./overlays/colors.nix;
-
         rust-overlay = inputs.rust-overlay.overlays.default;
       };
 

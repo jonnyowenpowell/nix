@@ -45,47 +45,12 @@ in
     set -U fish_term24bit 1
   '';
 
-  programs.fish.interactiveShellInit = with pkgs.lib.colors.kanagawa; ''
+  programs.fish.interactiveShellInit = ''
     set -g fish_greeting ""
-    ${pkgs.thefuck}/bin/thefuck --alias | source
     
     function fish_user_key_bindings
       fish_vi_key_bindings
     end
-
-    # Set Fish colors
-    set -l foreground ${fujiWhite}
-    set -l selection ${waveBlue2}
-    set -l comment ${fujiGray}
-    set -l red ${autumnRed}
-    set -l orange ${surimiOrange}
-    set -l yellow ${boatYellow2}
-    set -l green ${autumnGreen}
-    set -l purple ${oniViolet}
-    set -l cyan ${waveAqua2}
-    set -l pink ${sakuraPink}
-
-    # Syntax Highlighting Colors
-    set -g fish_color_normal $foreground
-    set -g fish_color_command $cyan
-    set -g fish_color_keyword $pink
-    set -g fish_color_quote $yellow
-    set -g fish_color_redirection $foreground
-    set -g fish_color_end $orange
-    set -g fish_color_error $red
-    set -g fish_color_param $purple
-    set -g fish_color_comment $comment
-    set -g fish_color_selection --background=$selection
-    set -g fish_color_search_match --background=$selection
-    set -g fish_color_operator $green
-    set -g fish_color_escape $pink
-    set -g fish_color_autosuggestion $comment
-
-    # Completion Pager Colors
-    set -g fish_pager_color_progress $comment
-    set -g fish_pager_color_prefix $cyan
-    set -g fish_pager_color_completion $foreground
-    set -g fish_pager_color_description $comment
 
     set -g EDITOR "${pkgs.helix}/bin/hx"
   '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
