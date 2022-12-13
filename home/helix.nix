@@ -9,86 +9,142 @@ in
   xdg.configFile."helix/config.toml".source = builtins.toFile "config.toml" (builtins.readFile ../config/helix/config.toml);
 
   xdg.configFile."helix/themes/kanagawa.toml".source = builtins.toFile "kanagawa.toml" ''
-    attribute = "crystalBlue"
-    keyword = "oniViolet"
-    "keyword.directive" = "oniViolet" # -- preprocessor comments (#if in C)
-    namespace = "lightBlue"
-    punctuation = "springViolet2"
-    "punctuation.delimiter" = "springViolet2"
-    operator = "boatYellow2"
-    special = "peachRed"
-    "variable.other.member" = "boatYellow2"
-    variable = "carpYellow"
-    # variable = "almond" # TODO: metavariables only
-    # "variable.parameter" = { fg = "lavender", modifiers = ["underlined"] }
-    "variable.parameter" = { fg = "carpYellow" }
-    "variable.builtin" = "waveRed"
-    type = "waveAqua2"
-    "type.builtin" = "waveRed" # TODO: distinguish?
-    constructor = "springBlue"
+    # fujiWhite
+    ui.text.fg = "fujiWhite"
+    ui.help.fg = "fujiWhite"
+    ui.cursor.insert.bg = "fujiWhite"
+
+    # crystalBlue
     function = "crystalBlue"
-    "function.macro" = "boatYellow2"
-    "function.builtin" = "peachRed"
+
+    # oniViolet
+    keyword = "oniViolet"
+    keyword.directive = "oniViolet" # -- preprocessor comments (#if in C)
     tag = "oniViolet"
+
+    # lightBlue
+    namespace = "lightBlue"
+    markup.raw = "lightBlue"
+
+    # springViolet2
+    punctuation = "springViolet2"
+    punctuation.delimiter = "springViolet2"
+
+    # boatYellow2
+    operator = "boatYellow2"
+    function.macro = "boatYellow2"
+    variable.other.member = "boatYellow2"
+
+    # peachRed
+    special = "peachRed"
+    function.builtin = "peachRed"
+
+    # carpYellow
+    variable = "carpYellow"
+    variable.parameter.fg = "carpYellow"
+
+    # waveRed
+    type.builtin = "waveRed"
+    variable.builtin = "waveRed"
+    constant.builtin = "waveRed"
+
+    # waveAqua2
+    type = "waveAqua2"
+
+    # springBlue
+    constructor = "springBlue"
+    constant.character.escape = "springBlue"
+    label = "springBlue" # used for lifetimes
+
+    # fujiGray
     comment = "fujiGray"
+
+    # surimiOrange
+    constant.numeric = "surimiOrange"
     constant = "surimiOrange"
-    "constant.builtin" = "waveRed"
+
+    # springGreen
     string = "springGreen"
-    "constant.numeric" = "surimiOrange"
-    "constant.character.escape" = "springBlue"
-    # used for lifetimes
-    label = "springBlue"
 
-    "markup.heading" = "oldWhite"
-    "markup.bold" = { modifiers = ["bold"] }
-    "markup.italic" = { modifiers = ["italic"] }
-    "markup.link.url" = { fg = "sumiInk4", modifiers = ["underlined"] }
-    "markup.link.text" = "katanaGray"
-    "markup.raw" = "lightBlue"
+    # oldWhite
+    markup.heading = "oldWhite"
+    ui.background.separator.fg = "oldWhite"
+    ui.linenr.selected.fg = "oldWhite"
+    ui.statusline.fg = "oldWhite"
+    ui.statusline.inactive.fg = "oldWhite"
+    ui.virtual.indent-guide.fg = "oldWhite"
+    ui.cursor.match.fg = "oldWhite"
+    ui.menu.fg = "oldWhite"
+    ui.menu.selected.fg = "oldWhite"
+    ui.menu.scroll.fg = "oldWhite"
 
-    "diff.plus" = "autumnGreen"
-    "diff.minus" = "autumnRed"
-    "diff.delta" = "autumnYellow"
+    # katanaGray
+    markup.link.text = "katanaGray"
+    ui.cursor.match.bg = "katanaGray"
 
-    "ui.background" = { bg = "sumiInk1" }
-    "ui.background.separator" = { fg = "oldWhite" }
-    "ui.linenr" = { fg = "sumiInk4" }
-    "ui.linenr.selected" = { fg = "oldWhite" }
-    "ui.statusline" = { fg = "oldWhite", bg = "waveBlue1" }
-    "ui.statusline.inactive" = { fg = "oldWhite", bg = "sumiInk0" }
-    "ui.popup" = { bg = "waveBlue1" }
-    "ui.window" = { fg = "springViolet1" }
-    "ui.help" = { bg = "waveBlue2", fg = "fujiWhite" }
+    # sumiInk4
+    markup.link.url = { fg = "sumiInk4", modifiers = ["underlined"] }
+    ui.linenr.fg = "sumiInk4"
+    ui.selection.bg = "sumiInk4"
 
-    "ui.text" = { fg = "fujiWhite" }
-    "ui.text.focus" = { fg = "springViolet1" }
-    "ui.virtual" = { fg = "waveBlue2" }
+    # autumnGreen
+    diff.plus = "autumnGreen"
 
-    "ui.virtual.indent-guide" = { fg = "oldWhite" }
+    # autumnRed
+    diff.minus = "autumnRed"
 
-    "ui.selection" = { bg = "sumiInk4" }
-    "ui.selection.primary" = { bg = "sumiInk3" }
-    # TODO: namespace ui.cursor as ui.selection.cursor?
-    "ui.cursor.select" = { bg = "sumiInk2" }
-    "ui.cursor.insert" = { bg = "fujiWhite" }
-    "ui.cursor.match" = { fg = "oldWhite", bg = "katanaGray" }
-    "ui.cursor" = { modifiers = ["reversed"] }
-    "ui.cursorline.primary" = { bg = "sumiInk3" }
-    "ui.highlight" = { bg = "waveBlue2" }
+    # autumnYellow
+    diff.delta = "autumnYellow"
 
-    "ui.menu" = { fg = "oldWhite", bg = "sumiInk2" }
-    "ui.menu.selected" = { fg = "oldWhite", bg = "sumiInk3" }
-    "ui.menu.scroll" = { fg = "oldWhite", bg = "sumiInk0" }
+    # sumiInk1
+    ui.background.bg = "sumiInk1"
 
-    "diagnostic.hint" = { underline = { color = "dragonBlue", style = "curl" } }
-    "diagnostic.info" = { underline = { color = "waveAqua1", style = "curl" } }
-    "diagnostic.warning" = { underline = { color = "roninYellow", style = "curl" } }
-    "diagnostic.error" = { underline = { color = "samuraiRed", style = "curl" } }
+    # waveBlue1
+    ui.statusline.bg = "waveBlue1"
+    ui.popup.bg = "waveBlue1"
 
-    warning = "roninYellow"
-    error = "samuraiRed"
-    info = "waveAqua1"
+    # sumiInk0
+    ui.statusline.inactive.bg = "sumiInk0"
+    ui.menu.scroll.bg = "sumiInk0"
+
+    # springViolet1
+    ui.window.fg = "springViolet1"
+    ui.text.focus.fg = "springViolet1"
+
+    # waveBlue2
+    ui.help.bg = "waveBlue2"
+    ui.virtual.fg = "waveBlue2"
+    ui.highlight.bg = "waveBlue2"
+
+    # sumiInk3
+    ui.selection.primary.bg = "sumiInk3"
+    ui.cursorline.primary.bg = "sumiInk3"
+    ui.menu.selected.bg = "sumiInk3"
+
+    # sumiInk2
+    ui.cursor.select.bg = "sumiInk2"
+    ui.menu.bg = "sumiInk2"
+
+    # dragonBlue
+    diagnostic.hint = { underline = { color = "dragonBlue", style = "curl" } }
     hint = "dragonBlue"
+
+    # waveAqua1
+    diagnostic.info = { underline = { color = "waveAqua1", style = "curl" } }
+    info = "waveAqua1"
+
+    # roninYellow
+    diagnostic.warning = { underline = { color = "roninYellow", style = "curl" } }
+    warning = "roninYellow"
+
+    # samuraiRed
+    diagnostic.error = { underline = { color = "samuraiRed", style = "curl" } }
+    error = "samuraiRed"
+
+    # no color
+    markup.bold = { modifiers = ["bold"] }
+    markup.italic = { modifiers = ["italic"] }
+    ui.cursor = { modifiers = ["reversed"] }
 
     [palette]
     fujiWhite = "#${colors.kanagawa.namedColors.fujiWhite}"
