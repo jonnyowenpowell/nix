@@ -26,7 +26,6 @@
     fnm
     gcc
     python311
-    rust-analyzer
     (rust-bin.stable.latest.default.override {
         extensions = [ "rust-src" "rustfmt" ];
     })
@@ -48,6 +47,9 @@
     gofumpt
     gopls
     ## rust
+    rust-analyzer
+    ## python
+    python310Packages.python-lsp-server
 
     # Networking
     mosh
