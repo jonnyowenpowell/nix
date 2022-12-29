@@ -57,6 +57,8 @@
     wget
 
     # Security
+    _1password
+    _1password-gui
     gnupg
     pkgs-stable.gopass
     pkgs-stable.gopass-jsonapi
