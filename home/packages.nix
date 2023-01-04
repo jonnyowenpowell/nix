@@ -31,6 +31,7 @@
         extensions = [ "rust-src" "rustfmt" ];
     })
     terraform
+    nodePackages.typescript
 
     # Databases
     pkgs-stable.pgcli
@@ -49,6 +50,8 @@
     gopls
     ## rust
     rust-analyzer
+    ## typescript
+    nodePackages.typescript-language-server
     ## python
     python310Packages.python-lsp-server
 
