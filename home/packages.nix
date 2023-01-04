@@ -48,12 +48,19 @@
     delve
     gofumpt
     gopls
+    ## nix
+    nil
     ## rust
     rust-analyzer
+    ## terraform
+    terraform-ls
     ## typescript
     nodePackages.typescript-language-server
+    nodePackages.vls
     ## python
     python310Packages.python-lsp-server
+    ## yaml
+    nodePackages.yaml-language-server
 
     # Networking
     mosh
