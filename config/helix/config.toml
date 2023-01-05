@@ -5,12 +5,14 @@ mouse       = false
 scrolloff   = 5
 line-number = "relative"
 gutters     = ["diagnostics", "line-numbers"]
+bufferline  = "multiple"
 
 shell = ["fish", "-c"]
 
 auto-completion = true
 auto-format     = true
 auto-info       = true
+auto-save       = true
 
 [editor.statusline]
 left   = ["spinner", "diagnostics"]
