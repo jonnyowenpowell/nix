@@ -4,7 +4,7 @@ theme = "kanagawa"
 mouse       = false
 scrolloff   = 5
 line-number = "relative"
-gutters     = ["diagnostics", "line-numbers"]
+gutters     = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
 bufferline  = "multiple"
 
 shell = ["fish", "-c"]

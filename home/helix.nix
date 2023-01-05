@@ -1,7 +1,5 @@
 { config, lib, pkgs, ... }:
 let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
-  inherit (config.home.user-info) nixConfigDirectory;
   colors = import ./colors.nix;
 in
 {
@@ -71,6 +69,8 @@ in
     "ui.background.separator".fg = "oldWhite"
     "ui.linenr.selected".fg = "oldWhite"
     "ui.statusline".fg = "oldWhite"
+    "ui.statusline.insert".fg = "oldWhite"
+    "ui.statusline.select".fg = "oldWhite"
     "ui.statusline.inactive".fg = "oldWhite"
     "ui.virtual.indent-guide".fg = "oldWhite"
     "ui.cursor.match".fg = "oldWhite"
@@ -81,6 +81,7 @@ in
     # katanaGray
     "markup.link.text" = "katanaGray"
     "ui.cursor.match".bg = "katanaGray"
+    "ui.statusline.normal".fg = "katanaGray"
 
     # sumiInk4
     "markup.link.url".fg = "sumiInk4"
