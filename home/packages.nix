@@ -27,9 +27,7 @@
     fnm
     gcc
     python311
-    (rust-bin.stable.latest.default.override {
-        extensions = [ "rust-src" "rustfmt" ];
-    })
+    rustup
     terraform
     nodePackages.typescript
 
