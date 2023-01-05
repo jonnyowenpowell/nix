@@ -44,6 +44,8 @@
     tilt
 
     # Language Tools
+    ## bash
+    nodePackages.bash-language-server
     ## go
     delve
     gofumpt
