@@ -42,7 +42,7 @@ in
     "variable.parameter".fg = "carpYellow"
 
     # waveRed
-    type.builtin = "waveRed"
+    "type.builtin" = "waveRed"
     "variable.builtin" = "waveRed"
     "constant.builtin" = "waveRed"
 
