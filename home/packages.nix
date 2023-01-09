@@ -37,6 +37,8 @@
 
     # Kubernetes
     k9s
+    # kubectl - docker-desktop installs
+    kubectx
     kubernetes-helm
     teleport
     tilt
