@@ -79,6 +79,7 @@
     coreutils
     exa
     go-task
+    home-manager
     jq
     ripgrep
     rlwrap
