@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  colima-bin = pkgs.callPackage ../pkgs/colima.nix {};
+  colima-bin = pkgs.callPackage ../pkgs/colima.nix { lima-bin = pkgs.lima-bin; };
 in {
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat

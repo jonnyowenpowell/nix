@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (lib) elem optionalString;
+  inherit (lib) optionalString;
   inherit (config.home.user-info) nixConfigDirectory;
 in
 {
@@ -17,7 +17,7 @@ in
     # Nix related
     drb = "darwin-rebuild build --flake $(readlink ${nixConfigDirectory})";
     drs = "darwin-rebuild switch --flake $(readlink ${nixConfigDirectory})";
-    dup = "nix flake update ${nixConfigDirectory}";
+    dup = "nix flake update $(readlink ${nixConfigDirectory})";
     nb = "nix build";
     nd = "nix develop";
     nf = "nix flake";
