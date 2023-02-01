@@ -15,8 +15,8 @@ in
   # Aliases
   programs.fish.shellAliases = with pkgs; {
     # Nix related
-    drb = "darwin-rebuild build --flake ${nixConfigDirectory}";
-    drs = "darwin-rebuild switch --flake ${nixConfigDirectory}";
+    drb = "darwin-rebuild build --flake $(readlink ${nixConfigDirectory})";
+    drs = "darwin-rebuild switch --flake $(readlink ${nixConfigDirectory})";
     dup = "nix flake update ${nixConfigDirectory}";
     nb = "nix build";
     nd = "nix develop";
