@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
-{
+let
+  colima-bin = pkgs.callPackage ../pkgs/colima.nix {};
+in {
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.bat.enable
@@ -35,9 +37,11 @@
     pkgs-stable.pgcli
     postgresql
 
-    # Kubernetes
+    # Containers
+    colima-bin
+    docker-client
     k9s
-    # kubectl - docker-desktop installs
+    kubectl
     kubectx
     kubernetes-helm
     teleport
