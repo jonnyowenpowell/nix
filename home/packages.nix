@@ -13,7 +13,7 @@ in {
 
   # Go
   programs.go.enable = true;
-  programs.go.package = pkgs.go_1_19;
+  programs.go.package = pkgs.pkgs-master.go_1_20;
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
 
