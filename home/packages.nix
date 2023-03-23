@@ -87,6 +87,7 @@ in {
     jq
     ripgrep
     rlwrap
+    unixtools.watch
     unrar
   ] ++ lib.optionals stdenv.isDarwin [
     m-cli
