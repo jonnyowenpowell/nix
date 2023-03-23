@@ -44,6 +44,7 @@ in {
     kubectl
     kubectx
     kubernetes-helm
+    skopeo
     teleport
     tilt
 
