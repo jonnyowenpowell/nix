@@ -1,6 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 let
-  colima-bin = pkgs.callPackage ../pkgs/colima.nix { lima-bin = pkgs.lima-bin; };
   oras = pkgs.callPackage ../pkgs/oras.nix {};
 in {
   # Bat, a substitute for cat.
@@ -39,7 +38,7 @@ in {
     postgresql
 
     # Containers
-    colima-bin
+    colima
     docker-client
     k9s
     kubectl
