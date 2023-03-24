@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   colima-bin = pkgs.callPackage ../pkgs/colima.nix { lima-bin = pkgs.lima-bin; };
+  oras = pkgs.callPackage ../pkgs/oras.nix {};
 in {
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat
@@ -44,6 +45,7 @@ in {
     kubectl
     kubectx
     kubernetes-helm
+    oras
     skopeo
     teleport
     tilt
