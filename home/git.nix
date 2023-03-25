@@ -8,10 +8,12 @@
 
   programs.git.extraConfig = {
     # General
-    core.autocrlf = "input";
     advice.addignoredfile = false;
-    pull.rebase = true;
+    core.autocrlf = "input";
+    fetch.prune = true;
     init.defaultbranch = "main";
+    pull.rebase = true;
+    rebase.autosquash = true;
 
     # Helpers
     core.editor = "${pkgs.helix}/bin/hx";

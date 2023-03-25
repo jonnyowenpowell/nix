@@ -27,7 +27,6 @@
     # Fetch commands
     f = "fetch";
     fm = "fetch origin main:main";
-    fp = "fetch --prune";
 
     # Push commands
     p = "push";
@@ -47,10 +46,10 @@
     sv = "stash show -p";
 
     # Rebase commands
-    rb = "rebase";
-    rba = "rebase --abort";
-    rbc = "rebase --continue";
-    rbi = "rebase --interactive";
-    rbs = "rebase --skip";
+    r = "rebase";
+    ra = "rebase --abort";
+    rc = "rebase --continue";
+    ri = "rebase --interactive";
+    rs = "rebase --skip";
   };
 }
