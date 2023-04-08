@@ -86,6 +86,8 @@ in {
     coreutils
     exa
     go-task
+    gnuplot
+    graphviz
     home-manager
     jq
     ripgrep
