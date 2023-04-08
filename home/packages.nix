@@ -25,9 +25,10 @@ in {
 
     # Compilers/Interpreters
     cmake
-    pkgs-stable.deno
+    deno
     fnm
     gcc
+    jdk
     python311
     rustup
     terraform
