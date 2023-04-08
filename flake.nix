@@ -134,7 +134,6 @@
         jonny-general = import ./darwin/general.nix;
         jonny-homebrew = import ./darwin/homebrew.nix;
 
-        programs-nix-index = import ./modules/darwin/programs/nix-index.nix;
         users-primaryUser = import ./modules/darwin/users.nix;
       };
 
