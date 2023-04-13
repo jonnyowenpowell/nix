@@ -24,6 +24,7 @@ in {
     gh
 
     # Compilers/Interpreters
+    bun
     cmake
     deno
     fnm
