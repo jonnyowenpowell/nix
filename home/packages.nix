@@ -55,7 +55,7 @@ in {
     ## bash
     nodePackages.bash-language-server
     ## go
-    delve
+    pkgs-unstable.delve
     gofumpt
     gopls
     ## nix
