@@ -71,9 +71,6 @@ in {
     ## yaml
     nodePackages.yaml-language-server
 
-    # Libraries
-    darwin.libiconv
-
     # Networking
     mosh
     ngrok
