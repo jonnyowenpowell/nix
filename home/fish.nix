@@ -53,6 +53,7 @@ in
     end
 
     set -g EDITOR "${pkgs.helix}/bin/hx"
+    fish_add_path "${config.home.homeDirectory}"/.cargo/bin
   '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
     fish_add_path ${config.home.sessionVariables.GOBIN}
 
