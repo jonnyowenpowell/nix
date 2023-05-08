@@ -71,6 +71,9 @@ in {
     ## yaml
     nodePackages.yaml-language-server
 
+    # Libraries
+    libiconv
+
     # Networking
     mosh
     ngrok
