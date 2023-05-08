@@ -31,7 +31,6 @@ in {
     gcc
     jdk
     python311
-    rustup
     terraform
     nodePackages.typescript
 
@@ -91,6 +90,7 @@ in {
     graphviz
     home-manager
     jq
+    nmap
     ripgrep
     rlwrap
     unixtools.watch
