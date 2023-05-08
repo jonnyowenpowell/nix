@@ -28,7 +28,6 @@ in {
     cmake
     deno
     fnm
-    gcc
     jdk
     python311
     terraform
