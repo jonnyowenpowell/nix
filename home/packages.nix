@@ -58,8 +58,6 @@ in {
     gopls
     ## nix
     nil
-    ## rust
-    rust-analyzer
     ## terraform
     terraform-ls
     ## typescript
