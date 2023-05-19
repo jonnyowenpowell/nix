@@ -1,6 +1,10 @@
 { lib, pkgs, ... }:
 let
   oras = pkgs.callPackage ../pkgs/oras.nix {};
+  pythonWithPackages = pkgs.python311.withPackages (p: with p; [
+    pip
+    python-lsp-server
+  ]);
 in {
   # Bat, a substitute for cat.
   # https://github.com/sharkdp/bat
@@ -29,7 +33,7 @@ in {
     deno
     fnm
     jdk
-    python311
+    pythonWithPackages
     terraform
     nodePackages.typescript
 
@@ -63,8 +67,6 @@ in {
     ## typescript
     nodePackages.typescript-language-server
     nodePackages.vls
-    ## python
-    python310Packages.python-lsp-server
     ## yaml
     nodePackages.yaml-language-server
 

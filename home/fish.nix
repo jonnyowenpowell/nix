@@ -34,7 +34,6 @@ in
     la = "ll -a";
     ll = "ls -l --time-style long-iso --icons";
     ls = "${exa}/bin/exa";
-    pip = "pip3";
     ps = "${procs}/bin/procs";
     tb = "toggle-background";
     dcu = "docker compose up -d";
