@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   # Starship Prompt
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.starship.enable
@@ -12,6 +10,8 @@
     character.success_symbol = "[➜](bold green) ";
     character.vicmd_symbol = "[ ](bold green) ";
     character.error_symbol = "[✗](bold red) ";
+
+    command_timeout = 1000;
 
     directory.fish_style_pwd_dir_length = 1; # turn on fish directory truncation
     directory.truncation_length = 2; # number of directories not to truncate
