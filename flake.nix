@@ -144,7 +144,6 @@
         jonny-gnupg-agent = import ./home/gnupg-agent.nix;
         jonny-helix = import ./home/helix.nix;
         jonny-kitty = import ./home/kitty.nix;
-        jonny-neovim = import ./home/neovim.nix;
         jonny-packages = import ./home/packages.nix;
         jonny-ssh = import ./home/ssh.nix;
         jonny-starship = import ./home/starship.nix;
