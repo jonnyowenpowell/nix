@@ -45,6 +45,7 @@ in {
     colima
     docker-client
     k9s
+    ko
     kubectl
     kubectx
     kubernetes-helm
