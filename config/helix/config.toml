@@ -27,7 +27,7 @@ select = "block"
 [editor.file-picker]
 hidden      = false
 ignore      = true
-git-ignore  = false
+git-ignore  = true
 git-global  = false
 git-exclude = false
 
