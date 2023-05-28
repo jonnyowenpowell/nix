@@ -57,10 +57,6 @@ in {
     # Language Tools
     ## bash
     nodePackages.bash-language-server
-    ## go
-    pkgs-master.delve
-    gofumpt
-    gopls
     ## nix
     nil
     ## terraform
