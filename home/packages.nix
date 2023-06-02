@@ -69,6 +69,7 @@ in {
 
     # Libraries
     libiconv
+    lzo
 
     # Networking
     mosh
