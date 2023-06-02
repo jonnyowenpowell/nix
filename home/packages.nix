@@ -81,6 +81,7 @@ in {
     pkgs-stable.gopass-jsonapi
     
     # Utilities
+    autoconf
     automake
     cloc
     coreutils
