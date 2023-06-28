@@ -59,6 +59,8 @@ in {
     nodePackages.bash-language-server
     ## nix
     nil
+    ## python
+    poetry
     ## terraform
     terraform-ls
     ## typescript
