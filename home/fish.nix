@@ -59,6 +59,7 @@ in
 
     set -gx GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
     set -gx NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
+    set -gx AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE 1
 
     fnm env --use-on-cd | source
   '';
