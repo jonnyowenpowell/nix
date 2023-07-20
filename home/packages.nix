@@ -17,7 +17,7 @@ in {
 
   # Go
   programs.go.enable = true;
-  programs.go.package = pkgs.pkgs-master.go_1_20;
+  programs.go.package = pkgs.pkgs-stable.go_1_20;
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
 
