@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 let
   oras = pkgs.callPackage ../pkgs/oras.nix {};
-  pythonWithPackages = pkgs.python310.withPackages (p: with p; [
+  pythonWithPackages = pkgs.python311.withPackages (p: with p; [
     pip
     python-lsp-server
   ]);
