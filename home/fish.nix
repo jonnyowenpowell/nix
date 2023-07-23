@@ -29,7 +29,7 @@ in
     ":q" = "exit";
     cat = "${bat}/bin/bat";
     du = "${du-dust}/bin/dust";
-    g = "${gitAndTools.git}/bin/git";
+    g = "${git}/bin/git";
     gtask = "task -d (git rev-parse --show-toplevel)";
     la = "ll -a";
     ll = "ls -l --time-style long-iso --icons";

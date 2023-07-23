@@ -5,7 +5,6 @@
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.git.enable
   # Aliases config in ./configs/git-aliases.nix
   programs.git.enable = true;
-  programs.git.package = pkgs.pkgs-stable.git;
 
   programs.git.extraConfig = {
     # General
