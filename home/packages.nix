@@ -39,7 +39,7 @@ in {
 
     # Databases
     pkgs-stable.pgcli
-    postgresql
+    pkgs-stable.postgresql
 
     # Containers
     colima
