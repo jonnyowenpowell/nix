@@ -17,7 +17,7 @@ in {
 
   # Go
   programs.go.enable = true;
-  programs.go.package = pkgs.pkgs-stable.go_1_20;
+  programs.go.package = pkgs.go_1_20;
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
 
@@ -38,11 +38,11 @@ in {
     nodePackages.typescript
 
     # Databases
-    pkgs-stable.pgcli
-    pkgs-stable.postgresql
+    pgcli
+    postgresql_15
 
     # Containers
-    colima
+    pkgs-unstable.colima
     docker-client
     k9s
     ko
@@ -77,8 +77,8 @@ in {
 
     # Security
     gnupg
-    pkgs-stable.gopass
-    pkgs-stable.gopass-jsonapi
+    gopass
+    gopass-jsonapi
     
     # Utilities
     autoconf
