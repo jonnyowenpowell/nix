@@ -52,7 +52,7 @@ in {
     oras
     skopeo
     teleport
-    tilt
+    pkgs-unstable.tilt
 
     # Language Tools
     ## bash
