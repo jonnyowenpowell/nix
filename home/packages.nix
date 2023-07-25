@@ -43,7 +43,7 @@ in {
 
     # Containers
     pkgs-unstable.colima
-    docker-client
+    pkgs-unstable.docker-client
     k9s
     ko
     kubectl
