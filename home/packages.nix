@@ -96,6 +96,7 @@ in {
     rlwrap
     unixtools.watch
     unrar
+    yq-go
   ] ++ lib.optionals stdenv.isDarwin [
     m-cli
   ];
