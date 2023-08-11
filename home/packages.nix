@@ -83,6 +83,7 @@ in {
     # Utilities
     autoconf
     automake
+    circleci-cli
     cloc
     coreutils
     exa
