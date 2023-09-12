@@ -1,7 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
-  inherit (lib) optionalString;
   inherit (config.home.user-info) nixConfigDirectory;
 in
 {
@@ -40,7 +39,6 @@ in
     yaegi = "rlwrap yaegi";
   };
 
-  # Configuration that should be above `loginShellInit` and `interactiveShellInit`.
   programs.fish.shellInit = ''
     set -U fish_term24bit 1
   '';
@@ -54,13 +52,21 @@ in
 
     set -g EDITOR "${pkgs.helix}/bin/hx"
     fish_add_path "${config.home.homeDirectory}"/.cargo/bin
-  '' + optionalString (builtins.isString config.home.sessionVariables.GOBIN) ''
     fish_add_path ${config.home.sessionVariables.GOBIN}
 
-    set -gx GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
-    set -gx NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
+    set -x DOCKER_HOST unix://{$HOME}/.colima/docker.sock    
     set -gx AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE 1
 
+    set -gx GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
+
     fnm env --use-on-cd | source
+  ''
+  # Snyk
+  + ''
+    set -gx NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
+    set -gx SNYK_INTERNAL_PROXY_HOST "$(gopass show snyk/internal_proxy/host)"
+    set -gx SNYK_INTERNAL_PROXY_CREDENTIALS "$(gopass show snyk/internal_proxy/credentials)"
+
+    abbr --add tshl tsh login --proxy="$(gopass show snyk/teleport/proxy)" "$(gopass show snyk/teleport/host)"
   '';
 }
