@@ -33,7 +33,7 @@ in {
     cmake
     deno
     fnm
-    jdk
+    pkgs-unstable.j
     pythonWithPackages
     terraform
     nodePackages.typescript

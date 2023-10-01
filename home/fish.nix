@@ -30,6 +30,7 @@ in
     du = "${du-dust}/bin/dust";
     g = "${git}/bin/git";
     gtask = "task -d (git rev-parse --show-toplevel)";
+    jhs = "jconsole ~/j903-user/config/jhs.cfg";
     la = "ll -a";
     ll = "ls -l --time-style long-iso --icons";
     ls = "${exa}/bin/exa";
