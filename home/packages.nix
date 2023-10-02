@@ -93,6 +93,7 @@ in {
     graphviz
     home-manager
     jq
+    kcat
     nmap
     ripgrep
     rlwrap
