@@ -89,6 +89,7 @@ in {
     coreutils
     exa
     go-task
+    gomuks
     gnuplot
     graphviz
     home-manager
