@@ -1,7 +1,6 @@
 { lib, pkgs, ... }:
 let
   oras = pkgs.callPackage ../pkgs/oras.nix {};
-  tiltLocal = pkgs.callPackage ../pkgs/tilt.nix {};
   pythonWithPackages = pkgs.python311.withPackages (p: with p; [
     pip
     python-lsp-server
@@ -53,7 +52,7 @@ in {
     oras
     skopeo
     teleport
-    tiltLocal
+    pkgs-unstable.tilt
 
     # Language Tools
     ## bash
@@ -70,6 +69,8 @@ in {
 
     # Libraries
     libiconv
+    ## required by gomuks
+    olm
 
     # Networking
     mosh
