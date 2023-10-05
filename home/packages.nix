@@ -69,8 +69,6 @@ in {
 
     # Libraries
     libiconv
-    ## required by gomuks
-    olm
 
     # Networking
     mosh
