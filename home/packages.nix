@@ -1,6 +1,7 @@
 { lib, pkgs, ... }:
 let
   oras = pkgs.callPackage ../pkgs/oras.nix {};
+  tiltLocal = pkgs.callPackage ../pkgs/tilt.nix {};
   pythonWithPackages = pkgs.python311.withPackages (p: with p; [
     pip
     python-lsp-server
@@ -49,7 +50,7 @@ in {
     oras
     skopeo
     teleport
-    pkgs-master.tilt
+    tiltLocal
 
     # Language Tools
     ## bash
