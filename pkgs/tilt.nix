@@ -13,8 +13,8 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "tilt-dev";
     repo = "tilt";
-    rev = "v${version}";
-    hash = "sha256-WtE8ExUKFRtdYeg0+My/DB+L/qT+J1EaKHKChNjC5oI=";
+    rev = "8cddf4d852ce2bd027d3d577796be179a3f24380";
+    hash = "sha256-GkcP5cICPzbRJWN6ysueqedhED/MQaqcP9p2qXqpTII=";
   };
 
   vendorHash = null;
