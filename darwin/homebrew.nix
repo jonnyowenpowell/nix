@@ -32,12 +32,6 @@ in
   homebrew.global.lockfiles = true;
 
   homebrew.taps = [
-    "homebrew/cask"
-    "homebrew/cask-drivers"
-    "homebrew/cask-fonts"
-    "homebrew/cask-versions"
-    "homebrew/core"
-    "homebrew/services"
     "mongodb/brew"
     "nrlquaker/createzap"
   ];
@@ -55,6 +49,7 @@ in
     "amethyst"
     "google-cloud-sdk"
     "gpg-suite"
+    "orbstack"
     "secretive"
   ];
 

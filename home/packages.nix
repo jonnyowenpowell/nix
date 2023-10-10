@@ -42,11 +42,8 @@ in {
     postgresql_15
 
     # Containers
-    pkgs-unstable.colima
-    pkgs-unstable.docker-client
     k9s
     ko
-    kubectl
     kubectx
     kubernetes-helm
     oras

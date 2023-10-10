@@ -45,31 +45,39 @@ in
   '';
 
   programs.fish.interactiveShellInit = ''
-    set -g fish_greeting ""
-    
     function fish_user_key_bindings
       fish_vi_key_bindings
     end
 
-    set -g EDITOR "${pkgs.helix}/bin/hx"
-    fish_add_path "${config.home.homeDirectory}"/.cargo/bin
-    fish_add_path ${config.home.sessionVariables.GOBIN}
+    function set_universal_variables
+      set -g fish_greeting ""
+      set -g EDITOR "${pkgs.helix}/bin/hx"
+      set -gx AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE 1
 
-    set -x DOCKER_HOST unix://{$HOME}/.colima/docker.sock    
-    set -gx AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE 1
+      if not set -q DEV_SECRETS_SET
+        set -gx DEV_SECRETS_SET 1
+        set -gx GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
+      end
 
-    set -gx GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
+      if not set -q SNYK_SECRETS_SET
+        set -gx SNYK_SECRETS_SET 1
+        set -gx NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
+        set -gx SNYK_INTERNAL_PROXY_HOST "$(gopass show snyk/internal_proxy/host)"
+        set -gx SNYK_INTERNAL_PROXY_CREDENTIALS "$(gopass show snyk/internal_proxy/credentials)"
+      end
+
+      if not set -q SNYK_ABBR_SET
+        set -gx SNYK_ABBR_SET 1
+        abbr --add tshl tsh login --proxy="$(gopass show snyk/teleport/proxy)" "$(gopass show snyk/teleport/host)"
+        abbr --add tshfda tsh login --proxy="$(gopass show snyk/teleport/fd_alpha_proxy)" "$(gopass show snyk/teleport/fd_alpha_host)"
+        abbr --add tshfdp tsh login --proxy="$(gopass show snyk/teleport/fd_prod_proxy)" "$(gopass show snyk/teleport/fd_prod_host)"
+      end
+    end
+
+    fish_add_path "${config.home.homeDirectory}/.cargo/bin"
+    fish_add_path "${config.home.sessionVariables.GOBIN}"
+    set_universal_variables
 
     fnm env --use-on-cd | source
-  ''
-  # Snyk
-  + ''
-    set -gx NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
-    set -gx SNYK_INTERNAL_PROXY_HOST "$(gopass show snyk/internal_proxy/host)"
-    set -gx SNYK_INTERNAL_PROXY_CREDENTIALS "$(gopass show snyk/internal_proxy/credentials)"
-
-    abbr --add tshl tsh login --proxy="$(gopass show snyk/teleport/proxy)" "$(gopass show snyk/teleport/host)"
-    abbr --add tshfda tsh login --proxy="$(gopass show snyk/teleport/fd_alpha_proxy)" "$(gopass show snyk/teleport/fd_alpha_host)"
-    abbr --add tshfdp tsh login --proxy="$(gopass show snyk/teleport/fd_prod_proxy)" "$(gopass show snyk/teleport/fd_prod_host)"
   '';
 }
