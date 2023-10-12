@@ -49,7 +49,7 @@ in {
     kubernetes-helm
     oras
     skopeo
-    teleport
+    pkgs-unstable.teleport
     tiltLocal
 
     # Language Tools
