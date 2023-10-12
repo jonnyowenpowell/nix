@@ -68,9 +68,9 @@ in
 
       if not set -q SNYK_ABBR_SET
         set -gx SNYK_ABBR_SET 1
-        abbr --add tshl tsh login --proxy="$(gopass show snyk/teleport/proxy)" "$(gopass show snyk/teleport/host)"
-        abbr --add tshfda tsh login --proxy="$(gopass show snyk/teleport/fd_alpha_proxy)" "$(gopass show snyk/teleport/fd_alpha_host)"
-        abbr --add tshfdp tsh login --proxy="$(gopass show snyk/teleport/fd_prod_proxy)" "$(gopass show snyk/teleport/fd_prod_host)"
+        abbr --add tshl tsh login --proxy="$(gopass show snyk/teleport/proxy)" "$(gopass show snyk/teleport/cluster)"
+        abbr --add tshfda tsh login --proxy="$(gopass show snyk/teleport/fd_alpha_proxy)" "$(gopass show snyk/teleport/fd_alpha_cluster)"
+        abbr --add tshfdp tsh login --proxy="$(gopass show snyk/teleport/fd_prod_proxy)" "$(gopass show snyk/teleport/fd_prod_cluster)"
       end
     end
 
