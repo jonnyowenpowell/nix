@@ -41,8 +41,8 @@ in
 
     # Teleport
     tshl = "tsh login --proxy \"$SNYK_TELEPORT_PROXY\" \"$SNYK_TELEPORT_CLUSTER\"";
-    tshfda = "tsh login --proxy \"$SNYK_TELEPORT_ALPHA_PROXY\" \"$SNYK_TELEPORT_ALPHA_CLUSTER\"";
-    tshfdp = "tsh login --proxy \"$SNYK_TELEPORT_PROD_PROXY\" \"$SNYK_TELEPORT_PROD_CLUSTER\"";
+    tshfda = "tsh login --proxy \"$SNYK_TELEPORT_FD_ALPHA_PROXY\" \"$SNYK_TELEPORT_FD_ALPHA_CLUSTER\"";
+    tshfdp = "tsh login --proxy \"$SNYK_TELEPORT_FD_PROD_PROXY\" \"$SNYK_TELEPORT_FD_PROD_CLUSTER\"";
   };
 
   programs.fish.shellInit = ''
