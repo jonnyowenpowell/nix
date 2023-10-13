@@ -38,6 +38,11 @@ in
     tb = "toggle-background";
     dcu = "docker compose up -d";
     yaegi = "rlwrap yaegi";
+
+    # Teleport
+    tshl = "tsh login --proxy \"$SNYK_TELEPORT_PROXY\" \"$SNYK_TELEPORT_CLUSTER\"";
+    tshfda = "tsh login --proxy \"$SNYK_TELEPORT_ALPHA_PROXY\" \"$SNYK_TELEPORT_ALPHA_CLUSTER\"";
+    tshfdp = "tsh login --proxy \"$SNYK_TELEPORT_PROD_PROXY\" \"$SNYK_TELEPORT_PROD_CLUSTER\"";
   };
 
   programs.fish.shellInit = ''
@@ -65,11 +70,9 @@ in
       set -gx SNYK_TELEPORT_FD_ALPHA_CLUSTER "$(gopass show snyk/teleport/fd_alpha_cluster)"
       set -gx SNYK_TELEPORT_FD_PROD_PROXY "$(gopass show snyk/teleport/fd_prod_proxy)"
       set -gx SNYK_TELEPORT_FD_PROD_CLUSTER "$(gopass show snyk/teleport/fd_prod_cluster)"
-
-      abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_PROXY" "$SNYK_TELEPORT_CLUSTER"
-      abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_ALPHA_PROXY" "$SNYK_TELEPORT_ALPHA_CLUSTER"
-      abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_PROD_PROXY" "$SNYK_TELEPORT_PROD_CLUSTER"
     end
+
+
 
     fish_add_path "${config.home.homeDirectory}/.cargo/bin"
     fish_add_path "${config.home.sessionVariables.GOBIN}"
