@@ -54,32 +54,22 @@ in
       set -g EDITOR "${pkgs.helix}/bin/hx"
       set -gx AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE 1
 
-      if not set -q DEV_SECRETS_SET
-        set -gx DEV_SECRETS_SET 1
-        set -gx GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
-      end
+      set -gx GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
 
-      if not set -q SNYK_SECRETS_SET
-        set -gx SNYK_SECRETS_SET 1
-        set -gx NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
-        set -gx SNYK_INTERNAL_PROXY_HOST "$(gopass show snyk/internal_proxy/host)"
-        set -gx SNYK_INTERNAL_PROXY_CREDENTIALS "$(gopass show snyk/internal_proxy/credentials)"
-      end
+      set -gx NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
+      set -gx SNYK_INTERNAL_PROXY_HOST "$(gopass show snyk/internal_proxy/host)"
+      set -gx SNYK_INTERNAL_PROXY_CREDENTIALS "$(gopass show snyk/internal_proxy/credentials)"
+      set -gx SNYK_TELEPORT_PROXY "$(gopass show snyk/teleport/proxy)"
+      set -gx SNYK_TELEPORT_CLUSTER "$(gopass show snyk/teleport/cluster)"
+      set -gx SNYK_TELEPORT_FD_ALPHA_PROXY "$(gopass show snyk/teleport/fd_alpha_proxy)"
+      set -gx SNYK_TELEPORT_FD_ALPHA_CLUSTER "$(gopass show snyk/teleport/fd_alpha_cluster)"
+      set -gx SNYK_TELEPORT_FD_PROD_PROXY "$(gopass show snyk/teleport/fd_prod_proxy)"
+      set -gx SNYK_TELEPORT_FD_PROD_CLUSTER "$(gopass show snyk/teleport/fd_prod_cluster)"
 
-      if not set -q SNYK_ABBR_SET
-        set -gx SNYK_ABBR_SET 1
-        set -gx SNYK_TELEPORT_PROXY "$(gopass show snyk/teleport/proxy)"
-        set -gx SNYK_TELEPORT_CLUSTER "$(gopass show snyk/teleport/cluster)"
-        set -gx SNYK_TELEPORT_FD_ALPHA_PROXY "$(gopass show snyk/teleport/fd_alpha_proxy)"
-        set -gx SNYK_TELEPORT_FD_ALPHA_CLUSTER "$(gopass show snyk/teleport/fd_alpha_cluster)"
-        set -gx SNYK_TELEPORT_FD_PROD_PROXY "$(gopass show snyk/teleport/fd_prod_proxy)"
-        set -gx SNYK_TELEPORT_FD_PROD_CLUSTER "$(gopass show snyk/teleport/fd_prod_cluster)"
-      end
+      abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_PROXY" "$SNYK_TELEPORT_CLUSTER"
+      abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_ALPHA_PROXY" "$SNYK_TELEPORT_ALPHA_CLUSTER"
+      abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_PROD_PROXY" "$SNYK_TELEPORT_PROD_CLUSTER"
     end
-
-    abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_PROXY" "$SNYK_TELEPORT_CLUSTER"
-    abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_ALPHA_PROXY" "$SNYK_TELEPORT_ALPHA_CLUSTER"
-    abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_PROD_PROXY" "$SNYK_TELEPORT_PROD_CLUSTER"
 
     fish_add_path "${config.home.homeDirectory}/.cargo/bin"
     fish_add_path "${config.home.sessionVariables.GOBIN}"
