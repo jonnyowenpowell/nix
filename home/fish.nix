@@ -68,11 +68,18 @@ in
 
       if not set -q SNYK_ABBR_SET
         set -gx SNYK_ABBR_SET 1
-        abbr --add tshl tsh login --proxy="$(gopass show snyk/teleport/proxy)" "$(gopass show snyk/teleport/cluster)"
-        abbr --add tshfda tsh login --proxy="$(gopass show snyk/teleport/fd_alpha_proxy)" "$(gopass show snyk/teleport/fd_alpha_cluster)"
-        abbr --add tshfdp tsh login --proxy="$(gopass show snyk/teleport/fd_prod_proxy)" "$(gopass show snyk/teleport/fd_prod_cluster)"
+        set -gx SNYK_TELEPORT_PROXY "$(gopass show snyk/teleport/proxy)"
+        set -gx SNYK_TELEPORT_CLUSTER "$(gopass show snyk/teleport/cluster)"
+        set -gx SNYK_TELEPORT_FD_ALPHA_PROXY "$(gopass show snyk/teleport/fd_alpha_proxy)"
+        set -gx SNYK_TELEPORT_FD_ALPHA_CLUSTER "$(gopass show snyk/teleport/fd_alpha_cluster)"
+        set -gx SNYK_TELEPORT_FD_PROD_PROXY "$(gopass show snyk/teleport/fd_prod_proxy)"
+        set -gx SNYK_TELEPORT_FD_PROD_CLUSTER "$(gopass show snyk/teleport/fd_prod_cluster)"
       end
     end
+
+    abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_PROXY" "$SNYK_TELEPORT_CLUSTER"
+    abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_ALPHA_PROXY" "$SNYK_TELEPORT_ALPHA_CLUSTER"
+    abbr --add tshl tsh login --proxy="$SNYK_TELEPORT_PROD_PROXY" "$SNYK_TELEPORT_PROD_CLUSTER"
 
     fish_add_path "${config.home.homeDirectory}/.cargo/bin"
     fish_add_path "${config.home.sessionVariables.GOBIN}"
