@@ -25,7 +25,7 @@ in {
   home.packages = with pkgs; [
     # Cloud
     aws-vault
-    awscli
+    awscli2
     gh
 
     # Compilers/Interpreters
