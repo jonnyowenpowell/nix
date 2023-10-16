@@ -8,5 +8,6 @@
       UserKnownHostsFile /Users/jonny/.ssh/known_hosts
 
     Include ~/.orbstack/ssh/config
+    Include ~/.stella/ssh/config
   '';
 }
