@@ -62,6 +62,7 @@ in
       set -gx GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
 
       set -gx NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
+      set -gx STELLA_GITHUB_TOKEN "$(gopass show snyk/github.com/stella_token)"
       set -gx SNYK_INTERNAL_PROXY_HOST "$(gopass show snyk/internal_proxy/host)"
       set -gx SNYK_INTERNAL_PROXY_CREDENTIALS "$(gopass show snyk/internal_proxy/credentials)"
       set -gx SNYK_TELEPORT_PROXY "$(gopass show snyk/teleport/proxy)"
@@ -71,8 +72,6 @@ in
       set -gx SNYK_TELEPORT_FD_PROD_PROXY "$(gopass show snyk/teleport/fd_prod_proxy)"
       set -gx SNYK_TELEPORT_FD_PROD_CLUSTER "$(gopass show snyk/teleport/fd_prod_cluster)"
     end
-
-
 
     fish_add_path "${config.home.homeDirectory}/.cargo/bin"
     fish_add_path "${config.home.sessionVariables.GOBIN}"
