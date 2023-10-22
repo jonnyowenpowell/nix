@@ -35,6 +35,7 @@ in {
     fnm
     pkgs-unstable.j
     pythonWithPackages
+    rustup
     terraform
     nodePackages.typescript
 
