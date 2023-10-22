@@ -38,6 +38,7 @@ in
     tb = "toggle-background";
     dcu = "docker compose up -d";
     yaegi = "rlwrap yaegi";
+    espdev = "exec bash -c \"source ~/export-esp.sh; exec fish\"";
 
     # Teleport
     tshl = "tsh login --proxy \"$SNYK_TELEPORT_PROXY\" \"$SNYK_TELEPORT_CLUSTER\"";
