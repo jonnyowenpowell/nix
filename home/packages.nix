@@ -87,6 +87,7 @@ in {
     cloc
     coreutils
     exa
+    exercism
     go-task
     gnuplot
     graphviz
