@@ -30,6 +30,7 @@ in {
 
     # Compilers/Interpreters
     bun
+    cabal-install
     cmake
     deno
     fnm
