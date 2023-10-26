@@ -33,10 +33,10 @@ in {
     cmake
     deno
     fnm
+    haskellPackages.ghcup
     pkgs-unstable.j
     pythonWithPackages
     rustup
-    stack
     terraform
     nodePackages.typescript
 
