@@ -30,13 +30,13 @@ in {
 
     # Compilers/Interpreters
     bun
-    cabal-install
     cmake
     deno
     fnm
     pkgs-unstable.j
     pythonWithPackages
     rustup
+    stack
     terraform
     nodePackages.typescript
 
