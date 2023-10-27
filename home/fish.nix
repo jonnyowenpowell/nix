@@ -75,7 +75,8 @@ in
     end
 
     fish_add_path "${config.home.homeDirectory}/.cargo/bin"
-    fish_add_path "${config.home.homeDirectory}/.local/bin"
+    fish_add_path "${config.home.homeDirectory}/.ghcup/bin"
+    fish_add_path "${config.home.homeDirectory}/.cabal/bin"
     fish_add_path "${config.home.sessionVariables.GOBIN}"
     set_universal_variables
 
