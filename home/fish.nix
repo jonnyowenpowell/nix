@@ -75,9 +75,14 @@ in
     end
 
     fish_add_path "${config.home.homeDirectory}/.cargo/bin"
+
     fish_add_path "${config.home.homeDirectory}/.ghcup/bin"
     fish_add_path "${config.home.homeDirectory}/.cabal/bin"
+
     fish_add_path "${config.home.sessionVariables.GOBIN}"
+
+    fish_add_path "${config.home.homeDirectory}/.local/bin"
+
     set_universal_variables
 
     fnm env --use-on-cd | source
