@@ -33,6 +33,3 @@ git-exclude = false
 
 [editor.search]
 wrap-around = false
-
-[editor.lsp]
-display-inlay-hints = true
