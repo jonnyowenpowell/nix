@@ -5,6 +5,6 @@
   xdg.configFile."helix/languages.toml".source = builtins.toFile "languages.toml" (builtins.readFile ../config/helix/languages.toml);
 
   home.packages = with pkgs; [
-    helix
+    pkgs-unstable.helix
   ];
 }
