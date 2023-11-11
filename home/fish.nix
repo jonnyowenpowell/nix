@@ -55,35 +55,42 @@ in
       fish_vi_key_bindings
     end
 
-    function set_universal_variables
-      set -g fish_greeting ""
-      set -g EDITOR "${pkgs.helix}/bin/hx"
-      set -gx AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE 1
+    function add_paths
+      fish_add_path "${config.home.homeDirectory}/.cargo/bin"
 
-      set -gx GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
+      fish_add_path "${config.home.homeDirectory}/.ghcup/bin"
+      fish_add_path "${config.home.homeDirectory}/.cabal/bin"
 
-      set -gx NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
-      set -gx STELLA_GITHUB_TOKEN "$(gopass show snyk/github.com/stella_token)"
-      set -gx SNYK_INTERNAL_PROXY_HOST "$(gopass show snyk/internal_proxy/host)"
-      set -gx SNYK_INTERNAL_PROXY_CREDENTIALS "$(gopass show snyk/internal_proxy/credentials)"
-      set -gx SNYK_TELEPORT_PROXY "$(gopass show snyk/teleport/proxy)"
-      set -gx SNYK_TELEPORT_CLUSTER "$(gopass show snyk/teleport/cluster)"
-      set -gx SNYK_TELEPORT_FD_ALPHA_PROXY "$(gopass show snyk/teleport/fd_alpha_proxy)"
-      set -gx SNYK_TELEPORT_FD_ALPHA_CLUSTER "$(gopass show snyk/teleport/fd_alpha_cluster)"
-      set -gx SNYK_TELEPORT_FD_PROD_PROXY "$(gopass show snyk/teleport/fd_prod_proxy)"
-      set -gx SNYK_TELEPORT_FD_PROD_CLUSTER "$(gopass show snyk/teleport/fd_prod_cluster)"
+      fish_add_path "${config.home.sessionVariables.GOBIN}"
+
+      fish_add_path "${config.home.homeDirectory}/.local/bin"
     end
 
-    fish_add_path "${config.home.homeDirectory}/.cargo/bin"
+    function set_universal_variables
+      set -U SENTINAL_UNIVERSAL_VARIABLE 1
 
-    fish_add_path "${config.home.homeDirectory}/.ghcup/bin"
-    fish_add_path "${config.home.homeDirectory}/.cabal/bin"
+      set -U fish_greeting ""
+      set -U EDITOR "${pkgs.helix}/bin/hx"
+      set -Ux AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE 1
 
-    fish_add_path "${config.home.sessionVariables.GOBIN}"
+      set -Ux GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"
 
-    fish_add_path "${config.home.homeDirectory}/.local/bin"
+      set -Ux NPM_TOKEN "$(gopass show snyk/npmjs.com/token)"
+      set -Ux STELLA_GITHUB_TOKEN "$(gopass show snyk/github.com/stella_token)"
+      set -Ux SNYK_INTERNAL_PROXY_HOST "$(gopass show snyk/internal_proxy/host)"
+      set -Ux SNYK_INTERNAL_PROXY_CREDENTIALS "$(gopass show snyk/internal_proxy/credentials)"
+      set -Ux SNYK_TELEPORT_PROXY "$(gopass show snyk/teleport/proxy)"
+      set -Ux SNYK_TELEPORT_CLUSTER "$(gopass show snyk/teleport/cluster)"
+      set -Ux SNYK_TELEPORT_FD_ALPHA_PROXY "$(gopass show snyk/teleport/fd_alpha_proxy)"
+      set -Ux SNYK_TELEPORT_FD_ALPHA_CLUSTER "$(gopass show snyk/teleport/fd_alpha_cluster)"
+      set -Ux SNYK_TELEPORT_FD_PROD_PROXY "$(gopass show snyk/teleport/fd_prod_proxy)"
+      set -Ux SNYK_TELEPORT_FD_PROD_CLUSTER "$(gopass show snyk/teleport/fd_prod_cluster)"
+    end
 
-    set_universal_variables
+    add_paths
+    if test -z "$SENTINAL_UNIVERSAL_VARIABLE"
+      set_universal_variables
+    end
 
     fnm env --use-on-cd | source
   '';
