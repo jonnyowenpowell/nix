@@ -48,6 +48,7 @@ in {
     ko
     kubectx
     kubernetes-helm
+    pkgs-unstable.kubeshark
     oras
     skopeo
     pkgs-unstable.teleport_13
