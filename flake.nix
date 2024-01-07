@@ -4,14 +4,14 @@
   inputs = {
     # Package sets
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixos-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixos-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     # Environment/system management
     darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-stable";
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     # Other sources
@@ -30,7 +30,7 @@
         overlays = attrValues self.overlays;
       };
 
-      homeManagerStateVersion = "23.05";
+      homeManagerStateVersion = "23.11";
 
       primaryUserInfo = {
         username = "jonny";

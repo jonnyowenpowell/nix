@@ -11,6 +11,8 @@ in
   # Add Fish plugins
   home.packages = [ pkgs.fishPlugins.done ];
 
+  home.sessionVariables.EDITOR = "${pkgs.helix}/bin/hx";
+
   # Aliases
   programs.fish.shellAliases = with pkgs; {
     # Nix related
@@ -33,7 +35,7 @@ in
     jhs = "jconsole ~/j903-user/config/jhs.cfg";
     la = "ll -a";
     ll = "ls -l --time-style long-iso --icons";
-    ls = "${exa}/bin/exa";
+    ls = "${eza}/bin/eza";
     ps = "${procs}/bin/procs";
     tb = "toggle-background";
     dcu = "docker compose up -d";
@@ -70,7 +72,6 @@ in
       set -U SENTINAL_UNIVERSAL_VARIABLE 1
 
       set -U fish_greeting ""
-      set -U EDITOR "${pkgs.helix}/bin/hx"
       set -Ux AWS_SDK_JS_SUPPRESS_MAINTENANCE_MODE_MESSAGE 1
 
       set -Ux GITHUB_PRIVATE_TOKEN "$(gopass show dev/github.com/token)"

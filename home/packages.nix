@@ -33,7 +33,7 @@ in {
     cmake
     deno
     fnm
-    pkgs-unstable.j
+    # j -- build is broken
     pythonWithPackages
     rustup
     terraform
@@ -51,7 +51,7 @@ in {
     pkgs-unstable.kubeshark
     oras
     skopeo
-    pkgs-unstable.teleport_13
+    pkgs-unstable.teleport
     tiltLocal
 
     # Language Tools
@@ -86,7 +86,7 @@ in {
     circleci-cli
     cloc
     coreutils
-    exa
+    eza
     exercism
     go-task
     gnuplot
