@@ -49,6 +49,7 @@ in
     "amethyst"
     "google-cloud-sdk"
     "gpg-suite"
+    "httpie"
     "orbstack"
     "secretive"
   ];
