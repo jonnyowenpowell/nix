@@ -52,6 +52,7 @@ in
     "httpie"
     "orbstack"
     "secretive"
+    "tuple"
   ];
 
   environment.variables.SSH_AUTH_SOCK = mkIfCaskPresent "secretive"
