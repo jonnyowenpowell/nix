@@ -92,6 +92,7 @@ in {
     graphviz
     home-manager
     jq
+    pkgs-unstable.k6
     kcat
     nmap
     ripgrep
