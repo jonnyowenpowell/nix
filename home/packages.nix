@@ -94,6 +94,7 @@ in {
     jq
     pkgs-unstable.k6
     kcat
+    lsix
     nmap
     ripgrep
     rlwrap
