@@ -17,7 +17,7 @@ in {
 
   # Go
   programs.go.enable = true;
-  programs.go.package = pkgs.pkgs-unstable.go_1_21;
+  programs.go.package = pkgs.pkgs-unstable.go_1_22;
   programs.go.goBin = "go/bin";
   programs.go.goPath = "go";
 
