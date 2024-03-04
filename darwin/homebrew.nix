@@ -32,8 +32,6 @@ in
   homebrew.global.lockfiles = true;
 
   homebrew.taps = [
-    "mongodb/brew"
-    "nrlquaker/createzap"
   ];
 
   homebrew.masApps = {
