@@ -78,6 +78,9 @@ in {
     gnupg
     gopass
     gopass-jsonapi
+
+    # Shell
+    pkgs-unstable.nushell 
     
     # Utilities
     autoconf
