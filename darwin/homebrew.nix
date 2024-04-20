@@ -32,6 +32,7 @@ in
   homebrew.global.lockfiles = true;
 
   homebrew.taps = [
+    "ggozad/formulas"
   ];
 
   homebrew.masApps = {
@@ -39,6 +40,7 @@ in
 
   homebrew.brews = [
     "httpie"
+    "ggozad/formulas/oterm"
   ];
 
   # If an app isn't available in the Mac App Store, or the version in the App Store has
