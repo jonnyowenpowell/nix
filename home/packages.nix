@@ -81,6 +81,7 @@ in {
 
     # Shell
     pkgs-unstable.nushell 
+    pkgs-unstable.zellij
     
     # Utilities
     autoconf
