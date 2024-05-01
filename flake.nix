@@ -148,6 +148,7 @@
         jonny-ssh = import ./home/ssh.nix;
         jonny-starship = import ./home/starship.nix;
         jonny-starship-symbols = import ./home/starship-symbols.nix;
+        jonny-zellij = import ./home/zellij.nix;
 
         home-user-info = { lib, ... }: {
           options.home.user-info =
